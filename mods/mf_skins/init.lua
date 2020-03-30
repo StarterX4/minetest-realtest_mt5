@@ -13,7 +13,11 @@ if io.open(textures_config, "r") ~= nil then
 	io.close()
 end
 
-mf_skins_table = mf_skins_table or {}
+if minetest.global_exists("mf_skins_table") then
+	mf_skins_table = mf_skins_table
+else
+	mf_skins_table = {}
+end
 
 local save_skins = function()
 	print(dump(mf_skins_table))
