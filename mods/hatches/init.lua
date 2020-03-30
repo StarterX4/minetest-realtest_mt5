@@ -29,7 +29,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 
 	minetest.register_node("hatches:"..name.."_hatch_opened_top", {
 		drawtype = "nodebox",
-		tile_images = {texture},
+		tiles = {texture},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -60,7 +60,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 	minetest.register_node("hatches:"..name.."_hatch_closed", {
 		description = desc.." Hatch",
 		drawtype = "nodebox",
-		tile_images = {texture},
+		tiles = {texture},
 		inventory_image = "hatches_"..name.."_hatch.png",
 		wield_image = "hatches_"..name.."_hatch.png",
 		paramtype = "light",
@@ -90,7 +90,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 
 	minetest.register_node("hatches:"..name.."_hatch_opened_bottom", {
 		drawtype = "nodebox",
-		tile_images = {texture},
+		tiles = {texture},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,

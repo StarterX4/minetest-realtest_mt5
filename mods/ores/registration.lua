@@ -35,7 +35,7 @@ function realtest.register_ore(name, OreDef)
         for i, wherein in ipairs(ore.wherein) do
                 local wherein_ = wherein:gsub(":","_")
                 local wherein_textures = {}
-                if minetest.registered_nodes[wherein].tiles or minetest.registered_nodes[wherein].tile_images then
+                if minetest.registered_nodes[wherein].tiles or minetest.registered_nodes[wherein].tiles then
                         for _, texture in ipairs(minetest.registered_nodes[wherein].tiles) do
                                 table.insert(wherein_textures, texture.."^"..name_..".png")
                         end
@@ -192,7 +192,7 @@ realtest.register_ore("ores:graphite", {
 
 minetest.register_node("ores:sulfur", {
 	description = "Sulfur Ore",
-	tile_images = {"default_stone.png^ores_sulfur.png"},
+	tiles = {"default_stone.png^ores_sulfur.png"},
 	particle_image = {"minerals_sulfur.png"},
 	paramtype = "light",
 	groups = {cracky=3,drop_on_dig=1,dig_immediate=2},
@@ -212,7 +212,7 @@ minetest.register_node("ores:sulfur", {
 
 minetest.register_node("ores:peat", {
 	description = "Peat",
-	tile_images = {"ores_peat.png"},
+	tiles = {"ores_peat.png"},
 	particle_image = {"ores_peat.png"},
 	groups = {crumbly=3,drop_on_dig=1,falling_node=1},
 	sounds = default.node_sound_dirt_defaults(),
