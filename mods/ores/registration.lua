@@ -2,7 +2,7 @@ realtest.registered_ores = {}
 realtest.registered_ores_list = {}
 local d_seed = 0
 local function copytable(t)
-	t2 = {}
+	local t2 = {}
 	for k,i in pairs(t) do
 		t2[k] = i
 	end
@@ -18,9 +18,9 @@ function realtest.register_ore(name, OreDef)
                 clust_scarcity = 1/(OreDef.chunks_per_volume or 1/3/3/3/2),
                 clust_size = OreDef.chunk_size or 3,
                 clust_num_ores = OreDef.ore_per_chunk or 10,
-                height_min = OreDef.height_min or -30912,
-                height_max = OreDef.height_max or 30912,
-                noise_threshhold = OreDef.noise_min or 1.2,
+                y_min = OreDef.y_min or -30912,
+                y_max = OreDef.y_max or 30912,
+                noise_threshold = OreDef.noise_min or 1.2,
                 noise_params = {offset=0, scale=1, spread={x=100, y=100, z=100}, octaves=3, persist=0.70, seed = OreDef.delta_seed or d_seed},
                 generate = true
         }
@@ -162,31 +162,31 @@ realtest.register_ore("ores:native_gold", {
 
 realtest.register_ore("ores:lignite", {
 	description = "Lignite",
-	height_max = -500,
-	height_min = -3000,
+	y_max = -500,
+	y_min = -3000,
 	ore_per_chunk = 15,
 	chunks_per_volume = 1/3/3/3,
 })
 
 realtest.register_ore("ores:bituminous_coal", {
 	description = "Bituminous Coal",
-	height_max = -3000,
-	height_min = -6000,
+	y_max = -3000,
+	y_min = -6000,
 	ore_per_chunk = 15,
 	chunks_per_volume = 1/3/3/3,
 })
 
 realtest.register_ore("ores:anthracite", {
 	description = "Anthracite",
-	height_max = -6000,
-	height_min = -8000,
+	y_max = -6000,
+	y_min = -8000,
 	ore_per_chunk = 15,
 	chunks_per_volume = 1/3/3/3,
 })
 
 realtest.register_ore("ores:graphite", {
 	description = "Graphite",
-	height_max = -8000,
+	y_max = -8000,
 	ore_per_chunk = 15,
 })
 
