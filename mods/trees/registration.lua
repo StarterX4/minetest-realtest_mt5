@@ -100,7 +100,8 @@ function realtest.register_tree(name, TreeDef)
 			meta:set_string("formspec",
 					"size[8,9]"..
 					"list[current_name;main;0,0;8,4;]"..
-					"list[current_player;main;0,5;8,4;]")
+					"list[current_player;main;0,5;8,4;]"..
+					"listring[]")
 			meta:set_string("infotext", tree.description.." Writing Table")
 			local inv = meta:get_inventory()
 			inv:set_size("main", 8*4)
@@ -400,7 +401,8 @@ function realtest.register_tree(name, TreeDef)
 			meta:set_string("formspec",
 					"size[8,9]"..
 					"list[current_name;main;0,0;8,4;]"..
-					"list[current_player;main;0,5;8,4;]")
+					"list[current_player;main;0,5;8,4;]"..
+					"listring[]")
 			meta:set_string("infotext", tree.description.." Chest")
 			local inv = meta:get_inventory()
 			inv:set_size("main", 8*4)
@@ -436,7 +438,8 @@ function realtest.register_tree(name, TreeDef)
 			meta:set_string("formspec",
 					"size[8,9]"..
 					"list[current_name;main;0,0;8,4;]"..
-					"list[current_player;main;0,5;8,4;]")
+					"list[current_player;main;0,5;8,4;]"..
+					"listring[]")
 			meta:set_string("infotext", tree.description.." Locked Chest")
 			local inv = meta:get_inventory()
 			inv:set_size("main", 8*4)
@@ -499,7 +502,8 @@ function realtest.register_tree(name, TreeDef)
 					"trees:locked_chest",
 					"size[8,9]"..
 					"list[nodemeta:".. pos .. ";main;0,0;8,4;]"..
-					"list[current_player;main;0,5;8,4;]")
+					"list[current_player;main;0,5;8,4;]"..
+					"listring[]")
 			end
 		end,
 	})

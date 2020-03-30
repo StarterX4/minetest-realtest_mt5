@@ -78,7 +78,10 @@ creative_inventory.set_creative_formspec = function(player, start_i, pagenum)
 			"button[0.3,6.5;1.6,1;creative_prev;<<]"..
 			"button[2.7,6.5;1.6,1;creative_next;>>]"..
 			"label[5,1.5;Trash:]"..
-			"list[detached:creative_trash;main;5,2;1,1;]")
+			"list[detached:creative_trash;main;5,2;1,1;]"..
+			"listring[detached:creative;main]"..
+			"listring[current_player;main]"..
+			"listring[detached:creative_trash;main]")
 end
 minetest.register_on_joinplayer(function(player)
 	-- If in creative mode, modify player's inventory forms
