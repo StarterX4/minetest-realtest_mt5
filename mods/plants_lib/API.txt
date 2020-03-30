@@ -445,7 +445,7 @@ dbg(string)
 
 This is a simple debug output function which takes one string parameter.  It
 just checks if DEBUG is true and outputs the phrase "[Plantlife] " followed by
-the supplied string, via the print() function, if so.
+the supplied string.
 
 =====
 plantslib:generate_tree(pos, treemodel)

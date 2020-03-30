@@ -140,5 +140,3 @@ for i in ipairs(grasses_list) do
 		grow_nodes = {"default:dirt_with_grass", "default:sand", "default:desert_sand"}
 	})
 end
-
-print("[Junglegrass] Loaded.")

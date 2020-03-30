@@ -213,8 +213,8 @@ minetest.register_abm({
 							srcstack = inv:get_stack("src"..i, 1)
 							srcstack:take_item()
 							inv:set_stack("src"..i, 1, srcstack)
-						--else
-							--print("Could not insert '"..cooked.item.."'")
+						else
+							minetest.log("verbose", "[furnace] Could not insert '"..cooked.item.."'")
 						end
 						meta:set_string("src_time"..i, 0)
 					end

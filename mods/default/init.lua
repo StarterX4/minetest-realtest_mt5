@@ -623,7 +623,6 @@ minetest.register_node("default:sign_wall", {
 		meta:set_string("infotext", "\"\"")
 	end,
 	on_receive_fields = function(pos, formname, fields, sender)
-		--print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", "field[text;;${text}]")
 		if minetest.is_protected(pos, sender:get_player_name()) then
@@ -707,30 +706,4 @@ minetest.register_craft({
 	output = "default:stone",
 	recipe = "default:stone_macadam",
 	cooktime = 8,
-	})
-
---
--- Global callbacks
---
-
--- Global environment step function
-function on_step(dtime)
-	-- print("on_step")
-end
-minetest.register_globalstep(on_step)
-
-function on_placenode(p, node)
-	--print("on_placenode")
-end
-minetest.register_on_placenode(on_placenode)
-
-function on_dignode(p, node)
-	--print("on_dignode")
-end
-minetest.register_on_dignode(on_dignode)
-
-function on_punchnode(p, node)
-end
-minetest.register_on_punchnode(on_punchnode)
-
--- END
+})

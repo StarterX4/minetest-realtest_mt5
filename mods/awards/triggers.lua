@@ -17,7 +17,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 	end
 	local nodedug = string.split(oldnode.name, ":")
 	if #nodedug ~= 2 then
-		print(oldnode.name.." is in wrong format!")
+		minetest.log("action", oldnode.name.." is in wrong format!")
 		return
 	end
 	local mod=nodedug[1]
@@ -33,7 +33,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 
 	-- Increment counder
 	awards.players[playern].count[mod][item]=awards.players[playern].count[mod][item]+1
-	print(" - "..mod..":"..item.." 's count is now "..(awards.players[playern].count[mod][item]))
+	minetest.log("action", " - "..mod..":"..item.." 's count is now "..(awards.players[playern].count[mod][item]))
 
 	-- Run callbacks and triggers
 	local player=digger
@@ -48,7 +48,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 			-- Handle table trigger
 			if not awards.onDig[i].node or not awards.onDig[i].target or not awards.onDig[i].award then
 				-- table running failed!
-				print("[ERROR] awards - onDig trigger "..i.." is invalid!")
+				minetest.log("error", "awards - onDig trigger "..i.." is invalid!")
 			else
 				-- run the table
 				local tnodedug = string.split(awards.onDig[i].node, ":")
@@ -74,7 +74,7 @@ minetest.register_on_placenode(function(pos,node,digger)
 	end
 	local nodedug = string.split(node.name, ":")
 	if #nodedug ~= 2 then
-		print(oldnode.name.." is in wrong format!")
+		minetest.log("action", oldnode.name.." is in wrong format!")
 		return
 	end
 	local mod=nodedug[1]
@@ -91,7 +91,7 @@ minetest.register_on_placenode(function(pos,node,digger)
 
 	-- Increment counder
 	awards.players[playern].place[mod][item] = awards.players[playern].place[mod][item]+1
-	print(" - "..mod..":"..item.." 's place count is now "..(awards.players[playern].place[mod][item]))
+	minetest.log("action", " - "..mod..":"..item.." 's place count is now "..(awards.players[playern].place[mod][item]))
 
 	-- Run callbacks and triggers
 	local player = digger
@@ -105,7 +105,7 @@ minetest.register_on_placenode(function(pos,node,digger)
 			-- Handle table trigger
 			if not awards.onPlace[i].node or not awards.onPlace[i].target or not awards.onPlace[i].award then
 				-- table running failed!
-				print("[ERROR] awards - onPlace trigger "..i.." is invalid!")
+				minetest.log("error", "awards - onPlace trigger "..i.." is invalid!")
 			else
 				-- run the table
 				local tnodedug = string.split(awards.onPlace[i].node, ":")
@@ -148,7 +148,7 @@ minetest.register_on_dieplayer(function(player)
 			-- handle table here
 			if not awards.onDeath[i].target or not awards.onDeath[i].award then
 				-- table running failed!
-				print("[ERROR] awards - onDeath trigger "..i.." is invalid!")
+				minetest.log("error", "awards - onDeath trigger "..i.." is invalid!")
 			else
 				-- run the table
 				if not data.deaths then

@@ -99,5 +99,3 @@ plantslib:grow_plants({
 	verticals_list = walls_list,
 	ground_nodes = {"default:dirt_with_grass"}
 })
-
-print(S("[Poison Ivy] Loaded."))

@@ -103,8 +103,8 @@ minetest.register_abm({
 
 		local was_active = false
     local consume = false
-		print("Fuel time: "..dump(meta:get_float("fuel_time")))
-		print("Fuel totaltime: "..dump(meta:get_float("fuel_totaltime")))
+		minetest.log("verbose", "Fuel time: "..dump(meta:get_float("fuel_time")))
+		minetest.log("verbose", "Fuel totaltime: "..dump(meta:get_float("fuel_totaltime")))
 
 		if meta:get_float("fuel_time") < meta:get_float("fuel_totaltime") then
 			was_active = true
@@ -120,13 +120,13 @@ minetest.register_abm({
           for i=1,4 do
 					  srcstack = inv:get_stack("src", i)
             if not srcstack:is_empty() then
-              print("Removing "..srcstack:get_name())
+              minetest.log("verbose", "Removing "..srcstack:get_name())
 					    srcstack:take_item(1)
 					    inv:set_stack("src", i, srcstack)
             end
           end
 				else
-					print("Could not insert '"..cooked.item:to_string().."'")
+					minetest.log("verbose", "Could not insert '"..cooked.item:to_string().."'")
 				end
 				meta:set_string("src_time", 0)
 			end

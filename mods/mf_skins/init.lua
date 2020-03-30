@@ -8,7 +8,7 @@ local textures_config = worldpath.."/player_skins_db.txt"
 if io.open(textures_config, "r") ~= nil then
 	io.input(textures_config)
 	skins_cfg = io.read("*all")
-	print(dump(skins_cfg))
+	minetest.log("verbose", dump(skins_cfg))
 	mf_skins_table = minetest.deserialize(skins_cfg)
 	io.close()
 end
@@ -20,7 +20,7 @@ else
 end
 
 local save_skins = function()
-	print(dump(mf_skins_table))
+	minetest.log("verbose", dump(mf_skins_table))
 	local file = io.open(textures_config, "w")
 		file:write(minetest.serialize(mf_skins_table))
 	io.close()
@@ -32,7 +32,7 @@ minetest.register_on_joinplayer(
 		local skin_name = "skin_"..pn
 
 		local skin_gender = { "player_male.png" }
-		print("Skin for "..pn.." was set to "..dump(mf_skins_table[skin_name]))
+		minetest.log("action", "Skin for "..pn.." was set to "..dump(mf_skins_table[skin_name]))
 		if mf_skins_table[skin_name] == "f" then
 			skin_gender = { "player_female.png" }
 		end

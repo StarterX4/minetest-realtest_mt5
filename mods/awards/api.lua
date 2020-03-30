@@ -43,13 +43,13 @@ function awards.tbv(tb,value,default)
 		if not value then
 			value = "[NULL]"
 		end
-		print("[ERROR] awards.tbv - table '"..value.."' is null, or not a table! Dump: "..dump(tb))
+		minetest.log("error", "awards.tbv - table '"..value.."' is null, or not a table! Dump: "..dump(tb))
 		return
 	end
 	if not value then
-		print("[ERROR] awards.tbv was not used correctly!")
-		print("Value: '"..dump(value).."'")
-		print("Dump:"..dump(tb))
+		minetest.log("error", "awards.tbv was not used correctly!")
+		minetest.log("error", "Value: '"..dump(value).."'")
+		minetest.log("error", "Dump:"..dump(tb))
 		return
 	end
 	if not tb[value] then
@@ -191,7 +191,7 @@ function awards.give_achievement(name,award)
 		end
 	
 		-- record this in the log	
-		print(name.." Has unlocked"..title..".")
+		minetest.log("action", name.." Has unlocked"..title..".")
 		
 		-- save playertable
 		awards.save()

@@ -334,7 +334,7 @@ minetest.register_entity(
       burn = function(self)
          local hp = self.object:get_hp() - BURN_DAMAGE__HP
          self.object:set_hp(hp)
-         print("DEBUG - bag HP = "..hp)
+         minetest.log("verbose", "bag HP = "..hp)
          if hp <= 0 then
             return self:remove()
          end
