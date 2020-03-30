@@ -1,3 +1,5 @@
+local PICKUP_TIMER = 0.75
+
 minetest.register_globalstep(function(dtime)
 	for _,player in ipairs(minetest.get_connected_players()) do
 		if player:get_hp() > 0 or not minetest.settings:get_bool("enable_damage") then
@@ -6,10 +8,11 @@ minetest.register_globalstep(function(dtime)
 			local inv = player:get_inventory()
 			
 			for _,object in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
-				if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
-					if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
-						inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
-						if object:get_luaentity().itemstring ~= "" then
+				local lua = object:get_luaentity()
+				if not object:is_player() and lua and lua.name == "__builtin:item" then
+					if lua.timer and lua.timer >= PICKUP_TIMER and inv and inv:room_for_item("main", ItemStack(lua.itemstring)) then
+						inv:add_item("main", ItemStack(lua.itemstring))
+						if lua.itemstring ~= "" then
 							minetest.sound_play("item_drop_pickup", {
 								to_player = player:get_player_name(),
 								gain = 0.4,
@@ -40,12 +43,12 @@ minetest.register_globalstep(function(dtime)
 							
 							minetest.after(1, function(args)
 								local lua = object:get_luaentity()
-								if object == nil or lua == nil or lua.itemstring == nil then
+								if object == nil or lua == nil or lua.itemstring == nil or lua.timer == nil or lua.timer < PICKUP_TIMER then
 									return
 								end
-								if inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
-									inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
-									if object:get_luaentity().itemstring ~= "" then
+								if inv:room_for_item("main", ItemStack(lua.itemstring)) then
+									inv:add_item("main", ItemStack(lua.itemstring))
+									if lua.itemstring ~= "" then
 										minetest.sound_play("item_drop_pickup", {
 											to_player = player:get_player_name(),
 											gain = 0.4,
