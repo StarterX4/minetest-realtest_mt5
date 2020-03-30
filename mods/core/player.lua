@@ -70,6 +70,11 @@ end
 -- Update appearance when the player joins
 minetest.register_on_joinplayer(player_update_visuals)
 
+-- Disable minimap to revert to 0.4.5 gameplay
+minetest.register_on_joinplayer(function(player)
+	player:hud_set_flags({minimap = false, minimap_radar = false})
+end)
+
 -- Check each player and apply animations
 function player_step(dtime)
 	for _, pl in pairs(minetest.get_connected_players()) do
