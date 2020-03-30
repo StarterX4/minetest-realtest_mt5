@@ -71,5 +71,5 @@ minetest.register_globalstep(function(dtime)
 end)
 
 if minetest.settings:get("log_mods") then
-	minetest.log("action", "item_drop loaded")
+	minetest.log("verbose", "item_drop loaded")
 end

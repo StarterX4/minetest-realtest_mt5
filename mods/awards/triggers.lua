@@ -33,7 +33,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 
 	-- Increment counder
 	awards.players[playern].count[mod][item]=awards.players[playern].count[mod][item]+1
-	minetest.log("action", " - "..mod..":"..item.." 's count is now "..(awards.players[playern].count[mod][item]))
+	minetest.log("info", "[awards] - "..mod..":"..item.." 's count is now "..(awards.players[playern].count[mod][item]))
 
 	-- Run callbacks and triggers
 	local player=digger
@@ -91,7 +91,7 @@ minetest.register_on_placenode(function(pos,node,digger)
 
 	-- Increment counder
 	awards.players[playern].place[mod][item] = awards.players[playern].place[mod][item]+1
-	minetest.log("action", " - "..mod..":"..item.." 's place count is now "..(awards.players[playern].place[mod][item]))
+	minetest.log("info", "[awards] - "..mod..":"..item.." 's place count is now "..(awards.players[playern].place[mod][item]))
 
 	-- Run callbacks and triggers
 	local player = digger

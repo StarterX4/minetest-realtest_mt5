@@ -182,5 +182,5 @@ minetest.register_entity(":__builtin:item", {
 })
 
 if minetest.settings:get("log_mods") then
-	minetest.log("action", "builtin_item loaded")
+	minetest.log("verbose", "builtin_item loaded")
 end

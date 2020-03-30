@@ -214,7 +214,7 @@ burn = function(pos)
 end
 
 if minetest.settings:get("log_mods") then
-	minetest.log("action", "tnt loaded")
+	minetest.log("verbose", "tnt loaded")
 end
 
 
