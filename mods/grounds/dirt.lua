@@ -87,7 +87,7 @@ function realtest.register_dirt(name, DirtRef)
 			sounds = default.node_sound_dirt_defaults(),
 			on_falling = function(pos, node)
 				minetest.set_node(pos, {name = farm_nofarm[node.name]})
-				nodeupdate_single(pos)
+				realtest.nodeupdate_single(pos)
 			end,
 		})
 	end
@@ -115,7 +115,7 @@ function realtest.register_dirt(name, DirtRef)
 			sounds = default.node_sound_dirt_defaults(),
 			on_falling = function(pos, node)
 				minetest.set_node(pos, {name = farm_nofarm[node.name]})
-				nodeupdate_single(pos)
+				realtest.nodeupdate_single(pos)
 			end,
 		})
 	end
@@ -130,7 +130,7 @@ function realtest.register_dirt(name, DirtRef)
 			sounds = default.node_sound_dirt_defaults(),
 			on_falling = function(pos, node)
 				minetest.set_node(pos, {name = farm_nofarm[node.name]})
-				nodeupdate_single(pos)
+				realtest.nodeupdate_single(pos)
 			end,
 		})
 	end
@@ -147,7 +147,7 @@ function realtest.register_dirt(name, DirtRef)
 			}),
 			on_falling = function(pos, node)
 				minetest.set_node(pos, {name = farm_nofarm[node.name]})
-				nodeupdate_single(pos)
+				realtest.nodeupdate_single(pos)
 			end,
 		})
 	end
@@ -192,7 +192,7 @@ function realtest.register_dirt(name, DirtRef)
 			if (n.liquidtype and n.liquidtype ~= "none") then
 				pos.y = pos.y-1
 				minetest.set_node(pos, {name=grass_nograss[node.name]})
-				nodeupdate_single(pos)
+				realtest.nodeupdate_single(pos)
 			end
 		end
 	})
@@ -228,7 +228,7 @@ function realtest.register_dirt(name, DirtRef)
 				if obj:is_player() then
 					if minetest.registered_nodes[minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z}).name].buildable_to then
 						minetest.set_node(pos, {name=grass_nograss[node.name]})
-						nodeupdate_single(pos)
+						realtest.nodeupdate_single(pos)
 						return
 					end
 				end

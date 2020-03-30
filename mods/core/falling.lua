@@ -32,7 +32,7 @@ function realtest.register_on_updatenode(func)
 end
 minetest.register_on_updatenode = realtest.register_on_updatenode
 
-local function nodeupdate_single(pos)
+function realtest.nodeupdate_single(pos)
 	for _, callback in ipairs(realtest.registered_on_updatenodes) do
 		local node = minetest.get_node(pos)
 		callback(pos, node)
@@ -44,7 +44,7 @@ function minetest.check_for_falling(pos)
 		for y = -1,1 do
 			for z = -1,1 do
 				local pos2 = {x=pos.x+x, y=pos.y+y, z=pos.z+z}
-				nodeupdate_single(pos2)
+				realtest.nodeupdate_single(pos2)
 			end
 		end
 	end
