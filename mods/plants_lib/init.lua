@@ -64,7 +64,7 @@ local humidity_persistence = 0.5
 local humidity_scale = 250
 
 local time_scale = 1
-local time_speed = tonumber(minetest.setting_get("time_speed"))
+local time_speed = tonumber(minetest.settings:get("time_speed"))
 
 if time_speed and time_speed > 0 then
 	time_scale = 72 / time_speed
@@ -203,9 +203,9 @@ function plantslib:populate_surfaces(biome, nodes_or_function_or_model, snodes, 
 	for i = 1, #snodes do
 		local pos = snodes[i]
 		local p_top = { x = pos.x, y = pos.y + 1, z = pos.z }
-		local noise1 = perlin_fertile_area:get2d({x=pos.x, y=pos.z})
-		local noise2 = plantslib.perlin_temperature:get2d({x=pos.x, y=pos.z})
-		local noise3 = plantslib.perlin_humidity:get2d({x=pos.x+150, y=pos.z+50})
+		local noise1 = perlin_fertile_area:get_2d({x=pos.x, y=pos.z})
+		local noise2 = plantslib.perlin_temperature:get_2d({x=pos.x, y=pos.z})
+		local noise3 = plantslib.perlin_humidity:get_2d({x=pos.x+150, y=pos.z+50})
 		local biome_surfaces_string = dump(biome.surface)
 		local surface_ok = false
 
@@ -498,9 +498,9 @@ function plantslib:spawn_on_surfaces(sd,sp,sr,sc,ss,sa)
 			local p_top = { x = pos.x, y = pos.y + 1, z = pos.z }	
 			local n_top = minetest.get_node(p_top)
 			local perlin_fertile_area = minetest.get_perlin(biome.seed_diff, perlin_octaves, perlin_persistence, perlin_scale)
-			local noise1 = perlin_fertile_area:get2d({x=p_top.x, y=p_top.z})
-			local noise2 = plantslib.perlin_temperature:get2d({x=p_top.x, y=p_top.z})
-			local noise3 = plantslib.perlin_humidity:get2d({x=p_top.x+150, y=p_top.z+50})
+			local noise1 = perlin_fertile_area:get_2d({x=p_top.x, y=p_top.z})
+			local noise2 = plantslib.perlin_temperature:get_2d({x=p_top.x, y=p_top.z})
+			local noise3 = plantslib.perlin_humidity:get_2d({x=p_top.x+150, y=p_top.z+50})
 			if noise1 > biome.plantlife_limit 
 			  and noise2 <= biome.temp_min
 			  and noise2 >= biome.temp_max
@@ -625,14 +625,14 @@ function plantslib:replace_object(pos, replacement, grow_function, walldir, seed
 		return
 	elseif growtype == "function" then
 		local perlin_fertile_area = minetest.get_perlin(seeddiff, perlin_octaves, perlin_persistence, perlin_scale)
-		local noise1 = perlin_fertile_area:get2d({x=pos.x, y=pos.z})
-		local noise2 = plantslib.perlin_temperature:get2d({x=pos.x, y=pos.z})
+		local noise1 = perlin_fertile_area:get_2d({x=pos.x, y=pos.z})
+		local noise2 = plantslib.perlin_temperature:get_2d({x=pos.x, y=pos.z})
 		grow_function(pos,noise1,noise2,walldir)
 		return
 	elseif growtype == "string" then
 		local perlin_fertile_area = minetest.get_perlin(seeddiff, perlin_octaves, perlin_persistence, perlin_scale)
-		local noise1 = perlin_fertile_area:get2d({x=pos.x, y=pos.z})
-		local noise2 = plantslib.perlin_temperature:get2d({x=pos.x, y=pos.z})
+		local noise1 = perlin_fertile_area:get_2d({x=pos.x, y=pos.z})
+		local noise2 = plantslib.perlin_temperature:get_2d({x=pos.x, y=pos.z})
 		assert(loadstring(grow_function.."(...)"))(pos,noise1,noise2,walldir)
 		return
 	elseif growtype == "nil" then
@@ -711,7 +711,7 @@ end
 
 -- Check for infinite stacks
 
-if minetest.get_modpath("unified_inventory") or not minetest.setting_getbool("creative_mode") then
+if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	plantslib.expect_infinite_stacks = false
 else
 	plantslib.expect_infinite_stacks = true

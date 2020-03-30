@@ -95,7 +95,7 @@ function fire.find_pos_for_flame_around(pos)
 end
 
 function fire.flame_should_extinguish(pos)
-	if minetest.setting_getbool("disable_fire") then return true end
+	if minetest.settings:get_bool("disable_fire") then return true end
 	--return minetest.find_node_near(pos, 1, {"group:puts_out_fire"})
 	local p0 = {x=pos.x-2, y=pos.y, z=pos.z-2}
 	local p1 = {x=pos.x+2, y=pos.y, z=pos.z+2}
@@ -180,7 +180,7 @@ minetest.register_abm({
 					return
 				end
 				minetest.remove_node(p)
-				nodeupdate(p)
+				minetest.check_for_falling(p)
 			end
 		else
 			-- remove flame

@@ -87,7 +87,7 @@ for _, tree in pairs(realtest.registered_trees) do
 			local find_instrument = function(instrument)
 				for i = 1, 4 do
 					local istack = inv:get_stack("instruments", i)
-					if minetest.get_node_group(istack:get_name(), instrument) == 1 then
+					if minetest.get_item_group(istack:get_name(), instrument) == 1 then
 						return i
 					end
 				end

@@ -291,7 +291,7 @@ minetest.register_node(":default:dirt", {
 	}),
 	on_punch = function(pos, node, puncher)
 		if puncher:get_wielded_item():get_name() == "farming:hoe" then
-			minetest.env:set_node(pos, {name="farming:soil"})
+			minetest.set_node(pos, {name="farming:soil"})
 		end
 	end,
 })
@@ -309,7 +309,7 @@ minetest.register_node(":default:dirt_with_grass", {
 	}),
 	on_punch = function(pos, node, puncher)
 		if puncher:get_wielded_item():get_name() == "farming:hoe" then
-			minetest.env:set_node(pos, {name="farming:soil"})
+			minetest.set_node(pos, {name="farming:soil"})
 		end
 	end,
 })

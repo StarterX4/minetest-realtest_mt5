@@ -83,7 +83,7 @@ instruments.spear.entity = {
 
 instruments.spear.entity.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local node = minetest.get_node(pos)
 
 	if self.timer > 0.2 and self.lastpos.x then
@@ -118,11 +118,11 @@ for i, material in ipairs(instruments.materials) do
 		description = instruments.desc_list[i].." Spear",
 		inventory_image = "instruments_spear_"..material..".png",
 		on_use = function (item, player, pointed_thing)
-			local playerpos=player:getpos()
+			local playerpos=player:get_pos()
 			local obj=minetest.add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, "instruments:spear_entity")
 			local dir=player:get_look_dir()
-			obj:setvelocity({x=dir.x*instruments.spear.velocity, y=dir.y*instruments.spear.velocity, z=dir.z*instruments.spear.velocity})
-			obj:setacceleration({x=dir.x*-3, y=-instruments.spear.gravity, z=dir.z*-3})
+			obj:set_velocity({x=dir.x*instruments.spear.velocity, y=dir.y*instruments.spear.velocity, z=dir.z*instruments.spear.velocity})
+			obj:set_acceleration({x=dir.x*-3, y=-instruments.spear.gravity, z=dir.z*-3})
 			obj:get_luaentity().material = material
 			return ""
 		end,
@@ -140,7 +140,7 @@ for i, material in ipairs(instruments.materials) do
 				local n = minetest.get_node(pointed_thing.under)
 				if instruments.chisel_pairs[n.name] then
 					minetest.add_node(pointed_thing.under, {name=instruments.chisel_pairs[n.name], param2=n.param2})
-					nodeupdate(pointed_thing.under)
+					minetest.check_for_falling(pointed_thing.under)
 				end
 				item:add_wear(65535/instruments.durability[i]/4)
 				return item

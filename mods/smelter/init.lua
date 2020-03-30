@@ -18,7 +18,7 @@ minetest.register_node("smelter:smelter", {
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_stone_defaults(),
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", smelter.smelter_formspec)
 		meta:set_string("infotext", "Smelter")
 		local inv = meta:get_inventory()
@@ -27,7 +27,7 @@ minetest.register_node("smelter:smelter", {
 		inv:set_size("dst", 4)
 	end,
 	can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos);
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
 		if not inv:is_empty("fuel") then
 			return false
@@ -51,7 +51,7 @@ minetest.register_node("smelter:smelter_active", {
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_stone_defaults(),
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", smelter.smelter_formspec)
 		meta:set_string("infotext", "Smelter");
 		local inv = meta:get_inventory()
@@ -60,7 +60,7 @@ minetest.register_node("smelter:smelter_active", {
 		inv:set_size("dst", 4)
 	end,
 	can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos);
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
 		if not inv:is_empty("fuel") then
 			return false
@@ -80,7 +80,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
     -- Init the values
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		for i, name in ipairs({
 				"fuel_totaltime",
 				"fuel_time",

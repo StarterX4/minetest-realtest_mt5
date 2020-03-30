@@ -6,7 +6,7 @@ local directions = {
 }
 
 local function update_fence(pos)
-	if minetest.get_node_group(minetest.get_node(pos).name, "fence") ~= 1 then
+	if minetest.get_item_group(minetest.get_node(pos).name, "fence") ~= 1 then
 		return
 	end
 	local sum = 0
@@ -16,7 +16,7 @@ local function update_fence(pos)
 			sum = sum + 2 ^ (i - 1)
 		end
 	end
-	local material = realtest.registered_trees_list[minetest.get_node_group(minetest.get_node(pos).name, "material")]:remove_modname_prefix()
+	local material = realtest.registered_trees_list[minetest.get_item_group(minetest.get_node(pos).name, "material")]:remove_modname_prefix()
 	minetest.add_node(pos, {name = "fences:"..material.."_fence_"..sum})
 end
 

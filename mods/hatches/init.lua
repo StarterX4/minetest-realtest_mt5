@@ -10,7 +10,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 			minetest.add_node({x = pos.x, y = pos.y + 1, z = pos.z}, {name = "hatches:"..name.."_hatch_closed", param2 = node.param2})
 			minetest.remove_node(pos)
 		elseif node.name == "hatches:"..name.."_hatch_closed" then
-			if (minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name == "air") and (puncher:getpos().y + 1 >= pos.y) then
+			if (minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name == "air") and (puncher:get_pos().y + 1 >= pos.y) then
 					minetest.add_node({x = pos.x, y = pos.y - 1, z = pos.z}, {name = "hatches:"..name.."_hatch_opened_bottom", 
 						param2 = node.param2})
 					minetest.remove_node(pos)

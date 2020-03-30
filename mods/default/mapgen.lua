@@ -49,7 +49,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine papyrus amount from perlin noise
-			local papyrus_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 45 - 20)
+			local papyrus_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) * 45 - 20)
 			-- Find random positions for papyrus based on this random
 			local pr = PseudoRandom(seed+1)
 			for i=0,papyrus_amount do
@@ -74,7 +74,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine cactus amount from perlin noise
-			local cactus_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 6 - 3)
+			local cactus_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) * 6 - 3)
 			-- Find random positions for cactus based on this random
 			local pr = PseudoRandom(seed+1)
 			for i=0,cactus_amount do
@@ -106,7 +106,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local z0 = minp.z + math.floor((divz+0)*divlen)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
-			local cobbles_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 5 + 0)
+			local cobbles_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) * 5 + 0)
 			local pr = PseudoRandom(seed+1)
 			for i=0,cobbles_amount do
 				local x = pr:next(x0, x1)
@@ -137,7 +137,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine cactus amount from perlin noise
-			local cactus_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 5 + 0)
+			local cactus_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) * 5 + 0)
 			-- Find random positions for cactus based on this random
 			local pr = PseudoRandom(seed+1)
 			for i=0,cactus_amount do

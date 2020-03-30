@@ -5,7 +5,7 @@ function furnace.check_furnace_blocks(pos)
 	for n = 1,#furnace_blocks do
 		local v = furnace_blocks[n]
 			if minetest.get_node_or_nil({x=pos.x+v.x,y=pos.y+v.y,z=pos.z+v.z}) and 
-					minetest.get_node_group(minetest.get_node({x=pos.x+v.x,y=pos.y+v.y,z=pos.z+v.z}).name, "stone") ~= 1 then
+					minetest.get_item_group(minetest.get_node({x=pos.x+v.x,y=pos.y+v.y,z=pos.z+v.z}).name, "stone") ~= 1 then
 				return false
 			end
 		end

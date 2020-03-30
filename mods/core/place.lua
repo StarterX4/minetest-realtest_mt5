@@ -7,9 +7,9 @@ function minetest.item_place_node(itemstack, placer, pointed_thing)
 
 	local under = pointed_thing.under
 
-    local oldnode_under = minetest.env:get_node_or_nil(under)
+    local oldnode_under = minetest.get_node_or_nil(under)
     local above = pointed_thing.above
-    local oldnode_above = minetest.env:get_node_or_nil(above)
+    local oldnode_above = minetest.get_node_or_nil(above)
 
     if not oldnode_under or not oldnode_above then
             minetest.log("info", placer:get_player_name() .. " tried to place"
@@ -55,7 +55,7 @@ function minetest.item_place_node(itemstack, placer, pointed_thing)
 		newnode.param2 = minetest.dir_to_wallmounted(dir)
 	-- Calculate the direction for furnaces and chests and stuff
 	elseif def.paramtype2 == 'facedir' then
-		local placer_pos = placer:getpos()
+		local placer_pos = placer:get_pos()
 		if placer_pos then
 			local dir = {
 				x = above.x - placer_pos.x,

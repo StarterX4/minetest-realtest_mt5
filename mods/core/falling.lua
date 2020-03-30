@@ -39,7 +39,7 @@ function nodeupdate_single(pos)
 	end
 end
 
-function nodeupdate(pos)
+function minetest.check_for_falling(pos)
 	for x = -1,1 do
 		for y = -1,1 do
 			for z = -1,1 do
@@ -51,7 +51,7 @@ function nodeupdate(pos)
 end
 
 realtest.register_on_updatenode(function(pos, node)
-	if minetest.get_node_group(node.name, "dropping_node") ~= 0 then
+	if minetest.get_item_group(node.name, "dropping_node") ~= 0 then
 		if minetest.registered_nodes[node.name].cause_drop(pos, node) then
 			local meta = minetest.get_meta(pos)
 			if minetest.registered_nodes[node.name].on_dropping then
@@ -66,20 +66,20 @@ realtest.register_on_updatenode(function(pos, node)
 			if minetest.registered_nodes[node.name].after_dig_node then
 				minetest.registered_nodes[node.name].after_dig_node(pos, node, meta, nil)
 			end
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	end
 end)
 
 realtest.register_on_updatenode(function(pos, node)
 		local b_node = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
-		if minetest.get_node_group(node.name, "dropping_like_stone") ~= 0 and
+		if minetest.get_item_group(node.name, "dropping_like_stone") ~= 0 and
 				(minetest.registered_nodes[b_node.name].walkable == false or
 					minetest.registered_nodes[b_node.name].buildable_to) then
 			local sides = {{x=-1,y=0,z=0}, {x=1,y=0,z=0}, {x=0,y=0,z=-1}, {x=0,y=0,z=1}, {x=0,y=-1,z=0}, {x=0,y=1,z=0}}
 			local drop = true
 			for _, s in ipairs(sides) do
-				if  minetest.get_node_group(minetest.get_node({x=pos.x+s.x,y=pos.y+s.y,z=pos.z+s.z}).name, "dropping_like_stone") ~= 0 then
+				if  minetest.get_item_group(minetest.get_node({x=pos.x+s.x,y=pos.y+s.y,z=pos.z+s.z}).name, "dropping_like_stone") ~= 0 then
 					drop = false
 					break
 				end
@@ -87,13 +87,13 @@ realtest.register_on_updatenode(function(pos, node)
 			if drop then
 				minetest.remove_node({x=pos.x,y=pos.y,z=pos.z})
 				minetest.handle_node_drops(pos, {node.name})
-				nodeupdate(pos)
+				minetest.check_for_falling(pos)
 			end
 		end
 	end)
 
 realtest.register_on_updatenode(function(pos, node)
-	if minetest.get_node_group(node.name, "falling_node") ~= 0 then
+	if minetest.get_item_group(node.name, "falling_node") ~= 0 then
 		if minetest.registered_nodes[node.name].cause_fall(pos, node) then
 			if minetest.registered_nodes[node.name].on_falling then
 				minetest.registered_nodes[node.name].on_falling(pos, node)
@@ -101,13 +101,13 @@ realtest.register_on_updatenode(function(pos, node)
 				minetest.remove_node(pos)
 				minetest.spawn_falling_node(pos, node.name)
 			end
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	end
 end)
 
 realtest.register_on_updatenode(function(pos, node)
-	if minetest.get_node_group(node.name, "attached_node") ~= 0 then
+	if minetest.get_item_group(node.name, "attached_node") ~= 0 then
 		local function check_attached_node(p, n)
 			local def = minetest.registered_nodes[n.name]
 			local d = {x=0, y=0, z=0}
@@ -139,7 +139,7 @@ realtest.register_on_updatenode(function(pos, node)
 		if not check_attached_node(pos, node) then
 			minetest.remove_node(pos)
 			minetest.handle_node_drops(pos, minetest.get_node_drops(node.name, nil))
-			nodeupdate(pos)
+			minetest.check_for_falling(pos)
 		end
 	end
 end)
@@ -183,15 +183,15 @@ minetest.register_entity(":__builtin:falling_node", {
 	on_activate = function(self, staticdata)
 		self.nodename = staticdata
 		self.object:set_armor_groups({immortal=1})
-		--self.object:setacceleration({x=0, y=-10, z=0})
+		--self.object:set_acceleration({x=0, y=-10, z=0})
 		self:set_node(self.nodename)
 	end,
 
 	on_step = function(self, dtime)
 		-- Set gravity
-		self.object:setacceleration({x=0, y=-10, z=0})
+		self.object:set_acceleration({x=0, y=-10, z=0})
 		-- Turn to actual sand when collides to ground or just move
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local bcp = {x=pos.x, y=pos.y-0.7, z=pos.z} -- Position of bottom center point
 		local bcn = minetest.get_node(bcp)
 		-- Note: walkable is in the node definition, not in item groups
@@ -224,7 +224,7 @@ minetest.register_entity(":__builtin:falling_node", {
 			-- Create node and remove entity
 			minetest.add_node(np, {name=self.nodename})
 			self.object:remove()
-			nodeupdate(np)
+			minetest.check_for_falling(np)
 		else
 			-- Do nothing
 		end

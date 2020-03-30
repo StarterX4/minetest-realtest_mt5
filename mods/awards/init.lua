@@ -197,9 +197,9 @@ awards.register_achievement("award_burn",{
 
 awards.register_onDeath(function(player,data)
 	print ("running on death function")
-	local pos=player:getpos()
+	local pos=player:get_pos()
 
-	if pos and minetest.env:find_node_near(pos, 1, "fire:basic_flame")~=nil then
+	if pos and minetest.find_node_near(pos, 1, "fire:basic_flame")~=nil then
 		return "award_burn"
 	end
 	

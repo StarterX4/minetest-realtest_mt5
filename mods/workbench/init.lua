@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU Lesser General Public
 -- License along with this program.  If not, see
 -- <http://www.gnu.org/licenses/>
-if not minetest.setting_getbool("creative_mode") then
+if not minetest.settings:get_bool("creative_mode") then
   minetest.register_on_joinplayer(function(player)
 
 	  -- make the craft guide available
@@ -69,7 +69,7 @@ for _, tree in pairs(realtest.registered_trees) do
 		meta:set_string("formspec", CRAFTING_FORMSPEC)
 	end,
 	can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos);
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
 		if inv:is_empty("craft") then
 			return true

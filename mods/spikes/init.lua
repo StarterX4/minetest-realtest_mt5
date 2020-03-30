@@ -2,7 +2,7 @@ spikes = {}
 
 spikes.intllib_modpath = minetest.get_modpath("intllib")
 
-if minetest.get_modpath("unified_inventory") or not minetest.setting_getbool("creative_mode") then
+if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	spikes.expect_infinite_stacks = false
 else
 	spikes.expect_infinite_stacks = true

@@ -177,7 +177,7 @@ minetest.after(0, function()
 	local delta = 0
 	minetest.register_globalstep(function(dtime)
 		delta = delta + dtime
-		local q = 72/minetest.setting_get("time_speed")
+		local q = 72/minetest.settings:get("time_speed")
 		while delta >= q do
 		    delta = delta - q
 		    seasons.timer = seasons.timer + 1

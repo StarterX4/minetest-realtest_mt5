@@ -17,7 +17,7 @@ dofile(minetest.get_modpath("default").."/mapgen.lua")
 --
 -- Tool definition
 --
-if minetest.setting_getbool("creative_mode") then
+if minetest.settings:get_bool("creative_mode") then
 	minetest.register_item(":", {
 		type = "none",
 		wield_image = "wieldhand.png",

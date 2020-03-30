@@ -252,8 +252,8 @@ minetest.register_entity(
          self.timer = ENV_CHECK_PERIOD__S
 
          local haveFlame = minetest.registered_nodes["fire:basic_flame"]
-         local pos = self.object:getpos()
-         local node = minetest.env:get_node(pos)
+         local pos = self.object:get_pos()
+         local node = minetest.get_node(pos)
          local nodeType = node and minetest.registered_nodes[node.name]
 
          if nodeType and nodeType.walkable and not nodeType.buildable_to then
@@ -262,16 +262,16 @@ minetest.register_entity(
 
          if minetest.get_item_group(node.name, "lava") > 0 then
             if haveFlame then
-               local flamePos = minetest.env:find_node_near(pos, 1.0, "air")
+               local flamePos = minetest.find_node_near(pos, 1.0, "air")
                if flamePos then
-                  minetest.env:add_node(flamePos,
+                  minetest.add_node(flamePos,
                                         { name = "fire:basic_flame" })
                end
             end
             return self:burn()
          end
 
-         if minetest.env:find_node_near(pos, 1.0, "group:puts_out_fire") then
+         if minetest.find_node_near(pos, 1.0, "group:puts_out_fire") then
             return
          end
 
@@ -285,13 +285,13 @@ minetest.register_entity(
          local burnLevels = 0.0
 
          local igniterPosList =
-            minetest.env:find_nodes_in_area(minPos, maxPos, "group:igniter")
+            minetest.find_nodes_in_area(minPos, maxPos, "group:igniter")
          for i, igniterPos in ipairs(igniterPosList) do
             local distSq = (igniterPos.x - pos.x)^2 +
                            (igniterPos.y - pos.y)^2 +
                            (igniterPos.z - pos.z)^2
             if distSq <= MAX_IGNITE_DIST^2 + EPSILON then
-               local igniterNode = minetest.env:get_node(igniterPos)
+               local igniterNode = minetest.get_node(igniterPos)
                local igniterLevel =
                   minetest.get_item_group(igniterNode.name, "igniter")
                      - math.max(1.0, math.sqrt(distSq) - EPSILON)
@@ -312,9 +312,9 @@ minetest.register_entity(
                local flamePos =
                   (node.name == "air")
                      and pos
-                     or minetest.env:find_node_near(pos, 1.0, "air")
+                     or minetest.find_node_near(pos, 1.0, "air")
                if flamePos then
-                  minetest.env:add_node(flamePos,
+                  minetest.add_node(flamePos,
                                         { name = "fire:basic_flame" })
                end
             end
@@ -347,7 +347,7 @@ local function rezEntity(stack, pos, player)
    local z = pos.z
 
    while true do
-      local node = minetest.env:get_node({ x = x, y = y-1, z = z})
+      local node = minetest.get_node({ x = x, y = y-1, z = z})
       local nodeType = node and minetest.registered_nodes[node.name]
       if not nodeType or nodeType.walkable then
          break
@@ -355,7 +355,7 @@ local function rezEntity(stack, pos, player)
       y = y - 1
    end
 
-   local obj = minetest.env:add_entity(pos, "prestibags:bag_entity")
+   local obj = minetest.add_entity(pos, "prestibags:bag_entity")
    if not obj then return stack end
 
    local contentData = stack:get_metadata()
@@ -390,14 +390,14 @@ minetest.register_tool(
 
       on_place = function(stack, player, pointedThing)
          local pos = pointedThing and pointedThing.under
-         local node = pos and minetest.env:get_node(pos)
+         local node = pos and minetest.get_node(pos)
          local nodeType = node and minetest.registered_nodes[node.name]
          if not nodeType or not nodeType.buildable_to then
             pos = pointedThing and pointedThing.above
-            node = pos and minetest.env:get_node(pos)
+            node = pos and minetest.get_node(pos)
             nodeType = node and minetest.registered_nodes[node.name]
          end
-         if not pos then pos = player:getpos() end
+         if not pos then pos = player:get_pos() end
 
          return rezEntity(stack, pos, player)
       end,

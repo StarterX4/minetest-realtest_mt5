@@ -37,7 +37,7 @@ local function generate(tree, minp, maxp, seed)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
 			-- Determine trees amount from perlin noise
-			local trees_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 5 + 0)
+			local trees_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) * 5 + 0)
 			-- Find random positions for trees based on this random
 			local pr = PseudoRandom(seed)
 			for i=0,trees_amount do

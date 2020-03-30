@@ -12,7 +12,7 @@ minetest.register_tool("sticks:sticks", {
 			end
 			pos = pointed_thing.above
 		elseif pointed_thing.type == "object" then
-			pos = pointed_thing.ref:getpos()
+			pos = pointed_thing.ref:get_pos()
 		else
 			return
 		end

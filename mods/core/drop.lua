@@ -1,4 +1,4 @@
-if minetest.setting_getbool("creative_mode") then
+if minetest.settings:get_bool("creative_mode") then
 	function minetest.handle_node_drops(pos, drops, digger)
 		if not digger or not digger:is_player() then
 			return
@@ -34,7 +34,7 @@ else
 					if math.random(1,2) == 1 then
 						z = -z
 					end
-					obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})
+					obj:set_velocity({x=1/x, y=obj:get_velocity().y, z=1/z})
 				end
 			end
 		end
@@ -43,7 +43,7 @@ else
 				drop(item)
 			end
 		end
-		if ALWAYS_DROP_NODES_AS_ITEMS and minetest.get_node_group(minetest.get_node(pos).name, "drop_on_dig") == 1 then
+		if ALWAYS_DROP_NODES_AS_ITEMS and minetest.get_item_group(minetest.get_node(pos).name, "drop_on_dig") == 1 then
 			drop_all()
 		elseif digger and digger:get_inventory() then
 			for _, dropped_item in ipairs(drops) do

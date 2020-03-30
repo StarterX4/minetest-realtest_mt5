@@ -10,7 +10,7 @@ minetest.register_on_joinplayer(function(player)
 	local player_name = player:get_player_name()
 	table.insert(players, player_name)
 	last_wielded[player_name] = player:get_wielded_item():get_name()
-	local pos = player:getpos()
+	local pos = player:get_pos()
 	local rounded_pos = {x=round(pos.x),y=round(pos.y)+1,z=round(pos.z)}
 	local wielded_item = player:get_wielded_item():get_name()
 	if wielded_item ~= "default:torch" and wielded_item ~= "light:streetlight" then
@@ -30,7 +30,7 @@ minetest.register_on_leaveplayer(function(player)
 			table.remove(players, i)
 			last_wielded[player_name] = nil
 			-- Neuberechnung des Lichts erzwingen
-			local pos = player:getpos()
+			local pos = player:get_pos()
 			local rounded_pos = {x=round(pos.x),y=round(pos.y)+1,z=round(pos.z)}
 			minetest.set_node(rounded_pos,{type="node",name="air"})
 			player_positions[player_name]["x"] = nil
@@ -48,7 +48,7 @@ minetest.register_globalstep(function(dtime)
 		local wielded_item = player:get_wielded_item():get_name()
 		if wielded_item == "default:torch" or wielded_item == "light:streetlight" then
 			-- Fackel ist in der Hand
-			local pos = player:getpos()
+			local pos = player:get_pos()
 			local rounded_pos = {x=round(pos.x),y=round(pos.y)+1,z=round(pos.z)}
 			if (last_wielded[player_name] ~= "default:torch" and last_wielded[player_name] ~= "light:streetlight") or (player_positions[player_name]["x"] ~= rounded_pos.x or player_positions[player_name]["y"] ~= rounded_pos.y or player_positions[player_name]["z"] ~= rounded_pos.z) then
 				-- Fackel gerade in die Hand genommen oder zu neuem Node bewegt
@@ -75,7 +75,7 @@ minetest.register_globalstep(function(dtime)
 			last_wielded[player_name] = wielded_item;
 		elseif last_wielded[player_name] == "default:torch" or last_wielded[player_name] == "light:streetlight" then
 			-- Fackel nicht in der Hand, aber beim letzten Durchgang war die Fackel noch in der Hand
-			local pos = player:getpos()
+			local pos = player:get_pos()
 			local rounded_pos = {x=round(pos.x),y=round(pos.y)+1,z=round(pos.z)}
 			repeat
 				local is_light  = minetest.get_node_or_nil(rounded_pos)

@@ -166,7 +166,7 @@ function realtest.register_slab(name, recipeitem, groups, images, description, s
 				return itemstack
 			end
 			
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:take_item()
 			end
 			return itemstack
