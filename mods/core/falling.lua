@@ -32,7 +32,7 @@ function realtest.register_on_updatenode(func)
 end
 minetest.register_on_updatenode = realtest.register_on_updatenode
 
-function nodeupdate_single(pos)
+local function nodeupdate_single(pos)
 	for _, callback in ipairs(realtest.registered_on_updatenodes) do
 		local node = minetest.get_node(pos)
 		callback(pos, node)
@@ -43,7 +43,7 @@ function minetest.check_for_falling(pos)
 	for x = -1,1 do
 		for y = -1,1 do
 			for z = -1,1 do
-				pos2 = {x=pos.x+x, y=pos.y+y, z=pos.z+z}
+				local pos2 = {x=pos.x+x, y=pos.y+y, z=pos.z+z}
 				nodeupdate_single(pos2)
 			end
 		end
@@ -169,7 +169,7 @@ minetest.register_entity(":__builtin:falling_node", {
 			item_texture = minetest.registered_items[itemname].inventory_image
 			item_type = minetest.registered_items[itemname].type
 		end
-		prop = {
+		local prop = {
 			is_visible = true,
 			textures = {nodename},
 		}
