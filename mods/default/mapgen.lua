@@ -230,9 +230,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local z0 = minp.z + math.floor((divz+0)*divlen)
 			local x1 = minp.x + math.floor((divx+1)*divlen)
 			local z1 = minp.z + math.floor((divz+1)*divlen)
-			-- Determine cactus amount from perlin noise
+			-- Determine amount from perlin noise
 			local cactus_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) * 5 + 0)
-			-- Find random positions for cactus based on this random
+			-- Find random positions based on this random
 			local pr = PseudoRandom(seed+1)
 			for i=0,cactus_amount do
 				local x = pr:next(x0, x1)
@@ -246,7 +246,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					end
 				end
 				-- If desert sand, make cactus
-				if ground_y and minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" then
+				if ground_y and
+						minetest.get_node({x=x,y=ground_y,z=z}).name == "default:desert_sand" and
+						minetest.get_node({x=x,y=ground_y+1,z=z}).name == "air" then
 					minetest.set_node({x=x,y=ground_y+1,z=z}, {name="default:dry_shrub"})
 				end
 			end
