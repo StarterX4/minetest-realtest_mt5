@@ -184,7 +184,7 @@ function awards.give_achievement(name,award)
 			-- use a formspec to send it
 			minetest.show_formspec(name, "achievements:unlocked", "size[4,2]"..
 					"image_button_exit[0,0;4,2;"..background..";close1; ]"..
-					"image_button_exit[0.2,0.8;1,1;"..icon..";close2; ]"..
+					"image[0.2,0.8;1,1;"..icon.."]"..
 					"label[1.1,1;"..title.."]"..
 					"label[0.3,0.1;"..custom_announce.."]")
 		else
