@@ -68,7 +68,7 @@ awards.register_trigger("dig", {
 	key_is_item = true,
 })
 minetest.register_on_dignode(function(pos, node, player)
-	if not player or not pos or not node then
+	if not player or (not player:is_player()) or not pos or not node then
 		return
 	end
 
