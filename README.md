@@ -35,7 +35,7 @@ Also, you can just climb up the tree and leave the thing in the chest.
 
 ### Bonfire
 
-To start a bonfire, you need something to ignite it. Connect two sticks in the crafting grid. You will get the "Sticks", a tool that can make a bonfire or furnace.
+To start a bonfire, you need something to ignite it. Connect two sticks in the crafting grid. You will get the fire starter, a tool that can make a bonfire or furnace.
 
 Now throw five sticks on the ground and use them two sticks.
 

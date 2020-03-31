@@ -1,5 +1,5 @@
 minetest.register_tool("sticks:sticks", {
-	description = "Sticks",
+	description = "Fire Starter",
 	inventory_image = "sticks_sticks.png",
 	on_use = function(item, user, pointed_thing)
 		local pos
