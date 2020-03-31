@@ -15,8 +15,10 @@ local function costum_hud(player)
 end
 
 minetest.register_on_joinplayer(function(player)
-	minetest.after(0.5, function()
-		hide_builtin(player)
-		costum_hud(player)
-	end)
+	minetest.after(0.5, function(player)
+		if player and player:is_player() then
+			hide_builtin(player)
+			costum_hud(player)
+		end
+	end, player)
 end)
