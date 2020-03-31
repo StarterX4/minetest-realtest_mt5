@@ -86,7 +86,7 @@ function fire.on_flame_add_at(pos)
 end
 
 function fire.on_flame_remove_at(pos)
-	minetets.log("info", "flame removed at "..minetest.pos_to_string(pos))
+	minetest.log("info", "flame removed at "..minetest.pos_to_string(pos))
 	fire.update_sounds_around(pos)
 end
 
