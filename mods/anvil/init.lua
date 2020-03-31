@@ -94,15 +94,14 @@ for i, metal in ipairs(metals.list) do
 		level = metals.levels[i],
 		material = metal,
 	})
-	-- receipe for coin production
-	realtest.register_anvil_recipe({
-		item1 = "metals:gold_sheet",
-		output = "money:coin 15",
-		level = metals.levels[i],
-		instrument = "chisel",
-		material = "gold",
-	})
 end
+-- receipe for coin production
+realtest.register_anvil_recipe({
+	item1 = "metals:gold_sheet",
+	output = "money:coin 15",
+	instrument = "chisel",
+	material = "gold",
+})
 -- general receipes (for flux production; used for welding)
 realtest.register_anvil_recipe({
 	item1 = "minerals:borax",
