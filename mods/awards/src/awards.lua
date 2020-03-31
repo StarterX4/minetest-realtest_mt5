@@ -179,7 +179,7 @@ awards.register_award("award_mine4",{
 -- First Death
 awards.register_award("award_death1",{
 	title = "First Death",
-	description = "Oh well, it does not matter, you have more lives than a cat",
+	description = "You get this when you die.\nDeath does not matter, you have more lives than a cat",
 	icon = "awards_death.png",
 	trigger={
 		type="death",
