@@ -80,7 +80,12 @@ function awards.load()
 		os.rename(old_save_path, minetest.get_worldpath().."/awards.bk.txt")
 		awards.save()
 	else
-		__player_data = minetest.parse_json(storage:get_string("player_data")) or {}
+		local str = storage:get_string("player_data")
+		if str == "" then
+			__player_data = str
+		else
+			__player_data = minetest.parse_json(str) or {}
+		end
 	end
 end
 
