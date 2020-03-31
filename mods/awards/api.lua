@@ -196,7 +196,7 @@ function awards.give_achievement(name,award)
 		end
 	
 		-- record this in the log	
-		minetest.log("action", name.." Has unlocked"..title..".")
+		minetest.log("action", "[awards] "..name.." Has unlocked: "..title..".")
 		
 		-- save playertable
 		awards.save()
@@ -206,17 +206,18 @@ end
 -- List a player's achievements
 minetest.register_chatcommand("list_awards", {
 	params = "",
-	description = "list_awards: list your awards",
+	description = "List your awards",
 	func = function(name, param)
 		if not awards.players[name] or not awards.players[name].unlocked  then
-			minetest.chat_send_player(name, "You do not have any awards")
+			minetest.chat_send_player(name, "You do not have any awards.")
 			return
 		end
 
-		minetest.chat_send_player(name, name.."'s awards:")
+		minetest.chat_send_player(name, "Your awards:")
 
 		for _, str in pairs(awards.players[name].unlocked) do
-			minetest.chat_send_player(name, str);
+			local title = awards.def[award].title
+			minetest.chat_send_player(name, title)
 		end
 	end,
 })
