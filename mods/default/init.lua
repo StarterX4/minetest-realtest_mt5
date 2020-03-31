@@ -9,6 +9,8 @@ local LAVA_VISC = 7
 
 -- Definitions made by this mod that other mods can use too
 default = {}
+default.gui_bg = ""
+default.gui_bg_img = ""
 
 -- Load other files
 dofile(minetest.get_modpath("default").."/mapgen.lua")
