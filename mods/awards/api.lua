@@ -216,8 +216,8 @@ minetest.register_chatcommand("list_awards", {
 		minetest.chat_send_player(name, "Your awards:")
 
 		for _, str in pairs(awards.players[name].unlocked) do
-			local title = awards.def[award].title
-			minetest.chat_send_player(name, title)
+			local title = awards.def[str].title
+			minetest.chat_send_player(name, "• " .. title)
 		end
 	end,
 })
