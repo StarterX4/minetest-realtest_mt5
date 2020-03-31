@@ -1,6 +1,13 @@
+local descs = {
+	"Tiny Stone Column",
+	"Small Stone Column",
+	"Medium Stone Column",
+	"Large Stone Column",
+}
+
 for i = 1,4 do
 	minetest.register_node("icicles:icicle_"..i, {
-		description = "Icicle "..i,
+		description = descs[i],
 		groups = {cracky=3, icicle=1, oddly_breakable_by_hand=4-i, drop_on_dig=1,attached_node=1},
 		tiles = {"default_stone.png"},
 		is_ground_content = true,

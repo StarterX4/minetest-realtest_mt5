@@ -162,7 +162,7 @@ minetest.register_craftitem("farming:soy_milk", {
 
 minetest.register_node("farming:cake", {
     drawtype = "nodebox",
-	description = "CAKE!!!",
+	description = "Cake",
 	tiles = {"farming_cake_top.png","farming_cake_base.png","farming_cake_side.png"},
 	groups = {crumbly=3},
 	sounds = default.node_sound_defaults(),
