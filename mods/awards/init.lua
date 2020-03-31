@@ -115,7 +115,6 @@ awards.register_achievement("award_anvil_stone",{
 	title = "Smithery",
 	description = "Place a Stone Anvil",
 	icon = "awards_anvil.png",
-	background = "bg_default.png",
 	trigger={
 		type="place",
 		node="anvil:anvil_stone",
@@ -126,7 +125,6 @@ awards.register_achievement("award_anvil_dstone",{
 	title = "Desert Smithery",
 	description = "Place a Desert Stone Anvil",
 	icon = "awards_desert_anvil.png",
-	background = "bg_default.png",
 	trigger={
 		type="place",
 		node="anvil:anvil_desert_stone",
@@ -139,7 +137,7 @@ awards.register_achievement("award_mine1",{
 	title = "Entering the mine",
 	description = "You have dug 10 stone",
 	icon = "awards_miniminer.png",
-	background = "bg_mining.png",
+	background = "awards_bg_mining.png",
 	trigger={
 		type="dig",
 		node="default:stone",
@@ -152,7 +150,7 @@ awards.register_achievement("award_mine2",{
 	title = "Mini Miner",
 	description = "You have dug 100 stone",
 	icon = "awards_miniminer.png",
-	background = "bg_mining.png",
+	background = "awards_bg_mining.png",
 	trigger={
 		type="dig",
 		node="default:stone",
@@ -165,7 +163,7 @@ awards.register_achievement("award_mine3",{
 	title = "Hardened Miner",
 	description = "You have dug 1000 stone",
 	icon = "awards_miniminer.png",
-	background = "bg_mining.png",
+	background = "awards_bg_mining.png",
 	trigger={
 		type="dig",
 		node="default:stone",
@@ -178,7 +176,7 @@ awards.register_achievement("award_mine4",{
 	title = "Master Miner",
 	description = "You have dug 10000 stone",
 	icon = "awards_miniminer.png",
-	background = "bg_mining.png",
+	background = "awards_bg_mining.png",
 	trigger={
 		type="dig",
 		node="default:stone",
