@@ -82,7 +82,7 @@ function awards.load()
 	else
 		local str = storage:get_string("player_data")
 		if str == "" then
-			__player_data = str
+			__player_data = {}
 		else
 			__player_data = minetest.parse_json(str) or {}
 		end
