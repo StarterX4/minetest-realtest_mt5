@@ -10,12 +10,39 @@ For Minetest 5.0.0 or later.
 This game was originally released by sda97 in 2012 (originally for Minetest 0.4.5). In 2020, Wuzzy has picked up this game to make it compatible with Minetest 5.1.1 (or later), fixing many bugs. Apart from that, absolutely no gameplay changes have been made. This game release has been done to basically preserve a part of Minetest history.
 
 ## Getting started
-### Crafting guide
-This game does not have a crafting guide (yet), it's strongly recommended you first install a crafting guide mod. For this game, `craftguide` by kilbith is recommended, with Progressive Mode turned on (otherwise you will be quite overwhelmed by the huge number of recipes at the start).
+### Summary
+* You start with nothing but your hand
+* You can dig dirt and sand but not much else
+* Dig leaves for sticks
+* Fell trees by diging the dirt below
+* Look in your crafting guide to see what you can craft
+* Collect more items to learn more recipes
+* Craft a workbench for a 3×3 crafting grid
+* Most tools are crafted with sticks and a tool head
+* The first method to smelt items is the bonfire
+* Create bonfire: Craft a fire starter, throw 5 sticks on the ground and use the fire starter on them, you might need multiple attempts
+* Use the bonfire to smelt items, keep the fire burning by putting fuel into its inventory
+* Fire starter can re-kindle the bonfire after it went out. Don't forget to put in some fuel
+* Burn some sticks to create torches
+* Craft a pickaxe and go mining. Look for ores
+* Ingots need ceramic molds, molds need clay, clay is found inside sand in beaches or the ocean
+* Craft and place a stone anvil to extract your ingots out of their molds
+* The anvil is needed for many metal-related crafts and is complex, see below
+* Hopefully you will figure out the rest!
 
 ### First wood
 All you have are hands that are good for light cases.
 The first thing to do is to find trees. But you can't break a tree with hands. No problem: you can dig dirt under a tree. After that, the tree collapses and you get logs, sticks and saplings.
+
+### Crafting and crafting guide
+In your inventory screen, there's a 2×2 grid. Here you can craft very simple items, but later in the game you will discover more ways to create items.
+
+There's also a book button. This is the crafting guide, it show you all crafting recipes you know. Just copy the pattern you see in the crafting guide into your grid.
+
+At the beginning of the game, the crafting guide will be empty but you will learn more recipes when you collect new items. There are hundreds of recipes to discover!
+
+### Workbench
+There are recipes that don't fit into your 2×2 grid. For those you need a workbench, which can be crafted from 4 logs.
 
 ### First tools
 First you need to find a few stones. They lie around, loose on the ground.
