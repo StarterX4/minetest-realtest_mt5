@@ -1,4 +1,4 @@
-MINERALS_LIST={
+local MINERALS_LIST={
 	'lazurite',
 	'anthracite',
 	'lignite',
@@ -39,7 +39,7 @@ MINERALS_LIST={
 	'charcoal'
 }
 
-MINERALS_DESC_LIST={
+local MINERALS_DESC_LIST={
 	'Lazurite',
 	'Anthracite',
 	'Lignite',

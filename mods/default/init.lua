@@ -3,10 +3,9 @@
 
 -- The API documentation in here was moved into doc/lua_api.txt
 
-WATER_ALPHA = 160
-WATER_VISC = 1
-LAVA_VISC = 7
-LIGHT_MAX = 14
+local WATER_ALPHA = 160
+local WATER_VISC = 1
+local LAVA_VISC = 7
 
 -- Definitions made by this mod that other mods can use too
 default = {}
@@ -527,7 +526,7 @@ minetest.register_node("default:lava_flowing", {
 	},
 	drop = "",
 	paramtype = "light",
-	light_source = LIGHT_MAX - 1,
+	light_source = minetest.LIGHT_MAX - 1,
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -555,7 +554,7 @@ minetest.register_node("default:lava_source", {
 	},
 	drop = "",
 	paramtype = "light",
-	light_source = LIGHT_MAX - 1,
+	light_source = minetest.LIGHT_MAX - 1,
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -585,7 +584,7 @@ minetest.register_node("default:torch", {
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
 	walkable = false,
-	light_source = LIGHT_MAX-1,
+	light_source = minetest.LIGHT_MAX-1,
 	selection_box = {
 		type = "wallmounted",
 		wall_top = {-0.1, 0.5-0.6, -0.1, 0.1, 0.5, 0.1},

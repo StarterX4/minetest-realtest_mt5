@@ -32,7 +32,7 @@ local destroy = function(pos)
 	end
 end
 
-boom = function(pos, time)
+local boom = function(pos, time)
 	minetest.after(time, function(pos)
 		if minetest.get_node(pos).name ~= "tnt:tnt_burning" then
 			return
@@ -161,7 +161,7 @@ minetest.register_node("tnt:tnt_burning", {
 minetest.register_node("tnt:boom", {
 	drawtype = "plantlike",
 	tiles = {"tnt_boom.png"},
-	light_source = LIGHT_MAX,
+	light_source = minetest.LIGHT_MAX,
 	walkable = false,
 	drop = "",
 	groups = {dig_immediate=3},

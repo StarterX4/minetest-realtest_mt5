@@ -1,5 +1,11 @@
 -- AWARDS
 -- by Rubenwardy, CC-BY-SA
+
+-- CONFIGURATION
+-- Use a graphical display for unlocking achievements. (Possible values: true | false)
+local Use_Formspec = true
+-- END OF CONFIGURATION
+
 -------------------------------------------------------
 -- this is api function file
 -------------------------------------------------------
@@ -68,7 +74,6 @@ end
 
 -- Load files
 dofile(minetest.get_modpath("awards").."/triggers.lua")
-dofile(minetest.get_modpath("awards").."/config.txt")
 
 -- API Functions
 function awards.register_achievement(name,data_table)

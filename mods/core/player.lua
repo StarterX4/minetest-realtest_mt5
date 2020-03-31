@@ -6,15 +6,15 @@
 --
 
 -- Player animation speed
-animation_speed = 30
+local animation_speed = 30
 
 -- Player animation blending
 -- Note: This is currently broken due to a bug in Irrlicht, leave at 0
-animation_blend = 0
+local animation_blend = 0
 
 -- Default player appearance
-default_model = "character.b3d"
-default_textures = {"character.png", }
+local default_model = "character.b3d"
+local default_textures = {"character.png", }
 
 -- Frame ranges for each player model
 function player_get_animations(model)
