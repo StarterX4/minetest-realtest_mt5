@@ -204,7 +204,13 @@ for i, tree_name in ipairs(realtest.registered_trees_list) do
 				"label[6.5,5.3;Output]"..
 				"list[current_name;res;6.5,4.5;1,1;]"..
 				"image[5.5,1.5;2,3.4;scribing_table_arrow.png]"..
-				"list[current_player;main;0,6;8,4;]"
+				"list[current_player;main;0,6;8,4;]"..
+				"listring[current_player;main]"..
+				"listring[current_name;dye]"..
+				"listring[current_player;main]"..
+				"listring[current_name;res]"..
+				"listring[current_player;main]"..
+				"listring[current_name;paper]"
 			)
 			meta:set_string("infotext", "Scribing Table")
 			local inv = meta:get_inventory()

@@ -250,7 +250,17 @@ for _, anvil in ipairs(anvils) do
 					"list[current_name;hammer;1,1.5;1,1;]"..
 					"list[current_name;output;3.5,1.5;1,1;]"..
 					"list[current_name;flux;6,1.5;1,1;]"..
-					"list[current_player;main;0,3;8,4;]")
+					"list[current_player;main;0,3;8,4;]"..
+					"listring[current_player;main]"..
+					"listring[current_name;src1]"..
+					"listring[current_player;main]"..
+					"listring[current_name;src2]"..
+					"listring[current_player;main]"..
+					"listring[current_name;hammer]"..
+					"listring[current_player;main]"..
+					"listring[current_name;output]"..
+					"listring[current_player;main]"..
+					"listring[current_name;flux]")
 			meta:set_string("infotext", anvil[2].." Anvil")
 			local inv = meta:get_inventory()
 			inv:set_size("src1", 1)

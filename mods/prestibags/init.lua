@@ -231,7 +231,8 @@ minetest.register_entity(
             "image[2,"..yImg..";1,1;prestibags_bag_inv.png]"..
             "list[detached:prestibags:bags;"..self.id..";3,0;"..
                   BAG_WIDTH..","..BAG_HEIGHT..";]"..
-            "list[current_player;main;0,"..yPlay..";8,4;]"
+            "list[current_player;main;0,"..yPlay..";8,4;]"..
+            "listring[]"
 
          minetest.show_formspec(
             player:get_player_name(), "prestibags:bag", formspec)

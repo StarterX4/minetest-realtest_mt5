@@ -64,7 +64,15 @@ for _, tree in pairs(realtest.registered_trees) do
 					"list[current_name;instruments;0.5,1.5;2,2;]"..
 					"label[4.5,2.85;Output]"..
 					"list[current_name;output;4.5,2;1,1;]"..
-					"list[current_player;main;0,4;8,4;]")
+					"list[current_player;main;0,4;8,4;]"..
+					"listring[current_player;main]"..
+					"listring[current_name;src1]"..
+					"listring[current_player;main]"..
+					"listring[current_name;src2]"..
+					"listring[current_player;main]"..
+					"listring[current_name;instruments]"..
+					"listring[current_player;main]"..
+					"listring[current_name;output]")
 			meta:set_string("infotext", "Joiner Table")
 			local inv = meta:get_inventory()
 			inv:set_size("src1", 1)

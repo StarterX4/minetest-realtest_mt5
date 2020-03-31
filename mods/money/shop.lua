@@ -13,6 +13,10 @@ default.shop.formspec = {
 		"label[5,2.5;Owner gives]"..
 		"list["..list_name..";owner_gives;5,3;3,2;]"..
 		"list[current_player;main;0,5.5;8,4;]"..
+		"listring[current_player;main]"..
+		"listring[current_player;customer_gives]"..
+		"listring[current_player;main]"..
+		"listring[current_player;customer_gets]"..
 		"button[3,2;2,1;exchange;Exchange]"
 		return formspec
 	end,
@@ -28,7 +32,15 @@ default.shop.formspec = {
 		"label[8,0;You give:]"..
 		"list["..list_name..";owner_gives;8,0.5;3,2;]"..
 		"label[2.5,7;Use(E)+Place(RMB) for customer interface]"..
-		"list[current_player;main;1.5,8;8,4;]"
+		"list[current_player;main;1.5,8;8,4;]"..
+		"listring[current_player;main]"..
+		"listring["..list_name..";stock]"..
+		"listring[current_player;main]"..
+		"listring["..list_name..";customers_gave]"..
+		"listring[current_player;main]"..
+		"listring["..list_name..";owner_wants]"..
+		"listring[current_player;main]"..
+		"listring["..list_name..";owner_gives]"
 		return formspec
 	end,
 }
