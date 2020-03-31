@@ -40,6 +40,81 @@ if mg_name ~= "singlenode" then
 	minetest.set_mapgen_setting("mgv6_spflags", "mudflow,biomeblend,nosnowbiomes,notrees,nojungles,noflat")
 end
 
+-- Register biomes (Experimental! We don't officially support non-v6 mapgens yet.)
+if mg_name ~= "v6" then
+	minetest.register_biome({
+		name = "Temperate",
+		node_top = "default:dirt_with_grass",
+		depth_top = 1,
+		node_filler = "default:dirt",
+		depth_filler = 2,
+		node_riverbed = "default:gravel",
+		y_min = 3,
+		heat_point = 50,
+		humidity_point = 50,
+	})
+	minetest.register_biome({
+		name = "Desert",
+		node_top = "default:desert_sand",
+		depth_top = 1,
+		node_filler = "default:desert_sand",
+		depth_filler = 2,
+		node_stone = "default:desert_stone",
+		node_riverbed = "default:sand",
+		node_dungeon = "default:desert_stone",
+		node_dungeon_stair = "default:desert_stone_stair",
+		y_min = 3,
+		heat_point = 80,
+		humidity_point = 50,
+	})
+	minetest.register_biome({
+		name = "Temperate Shore",
+		node_top = "default:dirt_with_grass",
+		depth_top = 1,
+		node_filler = "default:dirt",
+		depth_filler = 3,
+		node_riverbed = "default:gravel",
+		y_max = 2,
+		y_min = 1,
+		heat_point = 50,
+		humidity_point = 50,
+	})
+	minetest.register_biome({
+		name = "Desert Beach",
+		node_top = "default:sand",
+		depth_top = 1,
+		node_filler = "default:sand",
+		depth_filler = 3,
+		node_riverbed = "default:sand",
+		y_max = 2,
+		y_min = 1,
+		heat_point = 80,
+		humidity_point = 50,
+	})
+	minetest.register_biome({
+		name = "Dirt Ocean",
+		node_top = "default:dirt",
+		depth_top = 1,
+		node_filler = "default:dirt",
+		depth_filler = 2,
+		node_riverbed = "default:dirt",
+		y_max = 0,
+		heat_point = 50,
+		humidity_point = 50,
+	})
+	minetest.register_biome({
+		name = "Sand Ocean",
+		node_top = "default:sand",
+		depth_top = 1,
+		node_filler = "default:sand",
+		depth_filler = 2,
+		node_riverbed = "default:sand",
+		y_max = 0,
+		heat_point = 50,
+		humidity_point = 95,
+	})
+end
+
 function default.make_papyrus(pos, size)
 	for y=0,size-1 do
 		local p = {x=pos.x, y=pos.y+y, z=pos.z}
