@@ -457,6 +457,10 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		if( found ) then 
 			instrument_material = instruments.materials[ found ];
 		end
+		-- There is no stone chisel
+		if plan.instrument == "chisel" and instrument_material == "stone" then
+			instrument_material = "copper"
+		end
 		-- the instrument may need to be made out of a diffrent material
 		formspec = formspec.."item_image_button[1.0,2.0;1,1;instruments:"..plan.instrument.."_"..instrument_material..";material;"..instrument_material.."]";
 	-- show error message for unkown tools
