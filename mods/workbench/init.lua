@@ -30,7 +30,9 @@ if not minetest.settings:get_bool("creative_mode") then
 		  .."list[current_player;craft;3,0.5;2,2;]"
                   .."listring[]"
 		  .."image[5,1;1,1;workbench_craftarrow.png]"
-		  .."list[current_player;craftpreview;6,1;1,1;]")
+		  .."list[current_player;craftpreview;6,1;1,1;]"
+                  .."image_button[2,1;1,1;craftguide_book.png;__realtest_craftguide;]"
+                  .."tooltip[__realtest_craftguide;Crafting guide]")
   end)
 end
 
@@ -48,7 +50,9 @@ local CRAFTING_FORMSPEC = "size[9,9]"..
 "list[current_name;craft;2,1;3,3;]"..
 "listring[]"..
 "image[5,2;1,1;workbench_craftarrow.png]"..
-"list[current_name;craftpreview;6,2;1,1;]"
+"list[current_name;craftpreview;6,2;1,1;]"..
+"image_button[1,2;1,1;craftguide_book.png;__realtest_craftguide;]"..
+"tooltip[__realtest_craftguide;Crafting guide]"
 
 --Node Registry
 
@@ -77,6 +81,11 @@ for _, tree in pairs(realtest.registered_trees) do
 			return true
 		end
 		return false
+	end,
+	on_receive_fields = function(pos, formname, fields, sender)
+		if fields.__realtest_craftguide and sender and sender:is_player() then
+			realtest_craftguide.show(sender:get_player_name())
+		end
 	end,
 	on_metadata_inventory_take = update_craft_table,
 	on_metadata_inventory_move = update_craft_table,
