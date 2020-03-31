@@ -41,7 +41,6 @@ minetest.register_node("oven:oven", {
 		"oven_back.png", 
 		"oven_front.png"
 	},
-	inventory_image = "oven_front.png",
 	paramtype2 = "facedir",
 	groups = {cracky=2},
 	legacy_facedir_simple = true,
