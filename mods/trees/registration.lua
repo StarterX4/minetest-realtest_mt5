@@ -615,17 +615,17 @@ function realtest.register_tree(name, TreeDef)
 	
 	minetest.register_craft({
 		type = "fuel",
-		recipe = tree.name.."_stair",
+		recipe = tree.name.."_planks_stair",
 		burntime = 3.5,
 	})
-	realtest.add_bonfire_fuel(tree.name.."_stair")
+	realtest.add_bonfire_fuel(tree.name.."_planks_stair")
 	
 	minetest.register_craft({
 		type = "fuel",
-		recipe = tree.name.."_slab",
+		recipe = tree.name.."_planks_slab",
 		burntime = 3.5,
 	})
-	realtest.add_bonfire_fuel(tree.name.."_slab")
+	realtest.add_bonfire_fuel(tree.name.."_planks_slab")
 	
 	minetest.register_craft({
 		type = "fuel",
