@@ -5,6 +5,7 @@ minetest.register_node("concrete:concrete_block", {
 	paramtype = "light",
 	drop = "concrete:concrete_block",
 	groups = {cracky=1},	
+	sounds = default.node_sound_stone_defaults(),
 })
 
 realtest.register_stair("concrete:concrete_block",nil,nil,nil,
@@ -21,6 +22,7 @@ minetest.register_node("concrete:concrete_stripe", {
 	paramtype = "light",
 	drop = "concrete:concrete_stripe",
 	groups = {cracky=1},	
+	sounds = default.node_sound_stone_defaults(),
 })
 
 realtest.register_stair("concrete:concrete_stripe",nil,nil,nil,

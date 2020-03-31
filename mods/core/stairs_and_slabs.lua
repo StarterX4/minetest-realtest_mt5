@@ -137,6 +137,7 @@ function realtest.register_slab(name, recipeitem, groups, images, description, s
 		description = description,
 		drawtype = "nodebox",
 		groups = groups,
+		sounds = sounds,
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",

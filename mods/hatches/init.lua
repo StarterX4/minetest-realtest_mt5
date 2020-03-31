@@ -26,6 +26,12 @@ function hatches.register_hatch(name, desc, is_wooden)
 	else
 		texture = "metals_"..name.."_block.png"
 	end
+	local sounds
+	if is_wooden then
+		sounds = default.node_sound_wood_defaults()
+	else
+		sounds = default.node_sound_stone_defaults()
+	end
 
 	minetest.register_node("hatches:"..name.."_hatch_opened_top", {
 		drawtype = "nodebox",
@@ -35,6 +41,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 		is_ground_content = true,
 		climbable = true,
 		groups = {choppy=2, dig_immediate=2},
+		sounds = sounds,
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -67,6 +74,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 		paramtype2 = "facedir",
 		is_ground_content = true,
 		groups = {choppy=2, dig_immediate=2},
+		sounds = sounds,
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -96,6 +104,7 @@ function hatches.register_hatch(name, desc, is_wooden)
 		is_ground_content = true,
 		climbable = true,
 		groups = {choppy=2, dig_immediate=2},
+		sounds = sounds,
 		node_box = {
 			type = "fixed",
 			fixed = {

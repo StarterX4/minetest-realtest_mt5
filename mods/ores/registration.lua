@@ -196,6 +196,7 @@ minetest.register_node("ores:sulfur", {
 	particle_image = {"minerals_sulfur.png"},
 	paramtype = "light",
 	groups = {cracky=3,drop_on_dig=1,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
 	drop = {
 		max_items = 1,
 		items = {

@@ -15,7 +15,7 @@ minetest.register_node("grounds:clay", {
 	is_ground_content = true,
 	groups = {crumbly=3},
 	drop = 'default:clay_lump 4',
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = default.node_sound_sand_defaults(),
 })
 
 minetest.register_ore({

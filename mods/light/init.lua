@@ -5,6 +5,7 @@ minetest.register_node("light:streetlight", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	light_source = 14,
+	sounds = default.node_sound_glass_defaults(),
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -15,8 +16,8 @@ minetest.register_node("light:streetlight", {
 	groups = {choppy=2,dig_immediate=3,flammable=1},
 })
 
-metals = {"pig_iron", "bronze"}
-fuels = {"charcoal", "anthracite", "bituminous_coal", "lignite"}
+local metals = {"pig_iron", "bronze"}
+local fuels = {"charcoal", "anthracite", "bituminous_coal", "lignite"}
 
 for _, metal in ipairs(metals) do
 	for _, fuel in ipairs(fuels) do

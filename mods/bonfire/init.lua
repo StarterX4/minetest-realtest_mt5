@@ -48,6 +48,7 @@ minetest.register_node("bonfire:self", {
 	},
 	drop = "",
 	groups = {crumbly=3, oddly_breakable_by_hand=1, not_in_creative_inventory=1},
+	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", bonfire.formspec)
@@ -99,6 +100,7 @@ minetest.register_node("bonfire:self_active", {
 	light_source = 12,
 	drop = "",
 	groups = {igniter=1,crumbly=3, not_in_creative_inventory=1,fires=1},
+	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", bonfire.formspec)

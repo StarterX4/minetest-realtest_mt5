@@ -93,6 +93,7 @@ minetest.register_node("xpanes:pane", {
 	inventory_image = "xpanes_pane.png",
 	wield_image = "xpanes_pane.png",
 	node_placement_prediction = "",
+	sounds = default.node_sound_glass_defaults(),
 	on_construct = update_pane
 })
 

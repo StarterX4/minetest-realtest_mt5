@@ -59,6 +59,7 @@ for j, tree_name in ipairs(realtest.registered_trees_list) do
 			tiles = {tree.textures.planks},
 			paramtype = "light",
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,drop_on_dig=1,fence=1,material=j},
+			sounds = default.node_sound_wood_defaults(),
 			sunlight_propagates = true,
 			drop = "fences:"..tree.name:remove_modname_prefix().."_fence",
 			node_box = {
@@ -79,6 +80,7 @@ for j, tree_name in ipairs(realtest.registered_trees_list) do
 		tiles = {tree.textures.planks},
 		paramtype = "light",
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,drop_on_dig=1,fence=1,material=j},
+		sounds = default.node_sound_wood_defaults(),
 		sunlight_propagates = true,
 		node_box = {
 			type = "fixed",

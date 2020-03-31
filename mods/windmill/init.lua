@@ -18,6 +18,7 @@ minetest.register_node("windmill:windmill_farm", {
 		--wall_side = <default>
 	},
 	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("windmill:windmill_wooden", {
@@ -40,6 +41,7 @@ minetest.register_node("windmill:windmill_wooden", {
 		--wall_side = <default>
 	},
 	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_wood_defaults(),
 })
 
 for _, tree in pairs(realtest.registered_trees) do

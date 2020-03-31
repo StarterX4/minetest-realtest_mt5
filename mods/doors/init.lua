@@ -141,6 +141,7 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_bottom
 		},
 		groups = def.groups,
+		sounds = def.sounds,
 		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y+1
@@ -171,6 +172,7 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_top
 		},
 		groups = def.groups,
+		sounds = def.sounds,
 		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y-1
@@ -201,6 +203,7 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_bottom
 		},
 		groups = def.groups,
+		sounds = def.sounds,
 		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y+1
@@ -231,6 +234,7 @@ function doors:register_door(name, def)
 			fixed = def.selection_box_top
 		},
 		groups = def.groups,
+		sounds = def.sounds,
 		
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
 			pos.y = pos.y-1
@@ -254,6 +258,7 @@ for i, tree_name in ipairs(realtest.registered_trees_list) do
 		description = tree.description,
 		inventory_image = tree.textures.door_inventory,
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2},
+		sounds = default.node_sound_wood_defaults(),
 		tiles_bottom = {tree.textures.door_bottom,tree.textures.door_bottom},
 		tiles_top = {tree.textures.door_top,tree.textures.door_top},
 	})
@@ -279,6 +284,7 @@ for i=1, #metals.list do
 		description = metals.desc_list[i],
 		inventory_image = "metals_"..metals.list[i].."_block.png^doors_grey.png",
 		groups = {snappy=1,cracky=2},
+		sounds = default.node_sound_stone_defaults(),
 		tiles_bottom = {"metals_"..metals.list[i].."_block.png"},
 		tiles_top = {"metals_"..metals.list[i].."_block.png"},
 	})

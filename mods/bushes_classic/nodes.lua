@@ -156,6 +156,7 @@ for i, bush_name in ipairs(bushes_classic.bushes) do
 			"bushes_basket_pie_"..bush_name..".png",
 			"bushes_basket.png"
 		},
+		sounds = default.node_sound_defaults(),
 		paramtype = "light",
 		paramtype2 = "facedir",
 		on_use = minetest.item_eat(18),
@@ -206,6 +207,7 @@ minetest.register_node(":bushes:basket_empty", {
 	drawtype = "mesh",
 	mesh = "bushes_basket_empty.obj",
 	tiles = { "bushes_basket.png" },
+	sounds = default.node_sound_defaults(),
 	paramtype = "light",
 	paramtype2 = "facedir",
     groups = { dig_immediate = 3 },
