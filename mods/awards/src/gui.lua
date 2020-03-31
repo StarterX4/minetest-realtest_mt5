@@ -179,7 +179,7 @@ function awards.show_to(name, to, sid, text)
 			minetest.chat_send_player(to, S("Error: No award available."))
 			return
 		elseif not data or not data.unlocked  then
-			minetest.chat_send_player(to, S("You have not unlocked any awards."))
+			minetest.chat_send_player(to, S("You have not gotten any awards."))
 			return
 		end
 		minetest.chat_send_player(to, string.format(S("%s’s awards:"), name))

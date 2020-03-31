@@ -96,9 +96,9 @@ function awards.unlock(name, award)
 	if awards.show_mode == "chat" then
 		local chat_announce
 		if awdef.secret then
-			chat_announce = S("Secret award unlocked: %s")
+			chat_announce = S("Secret award gotten: %s")
 		else
-			chat_announce = S("Award unlocked: %s")
+			chat_announce = S("Award gotten: %s")
 		end
 		-- use the chat console to send it
 		minetest.chat_send_player(name, string.format(chat_announce, title))
@@ -118,9 +118,9 @@ function awards.unlock(name, award)
 		})
 		local hud_announce
 		if awdef.secret then
-			hud_announce = S("Secret award unlocked!")
+			hud_announce = S("Secret award gotten!")
 		else
-			hud_announce = S("Award unlocked!")
+			hud_announce = S("Award gotten!")
 		end
 		local two = player:hud_add({
 			hud_elem_type = "text",
