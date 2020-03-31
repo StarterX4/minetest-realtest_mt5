@@ -15,14 +15,14 @@ minetest.register_alias("mapgen_dirt_with_grass", "default:dirt_with_grass")
 minetest.register_alias("mapgen_desert_sand", "default:desert_sand")
 minetest.register_alias("mapgen_desert_stone", "default:desert_stone")
 minetest.register_alias("mapgen_dirt_with_snow", "default:dirt_with_grass")
-minetest.register_alias("mapgen_snowblock", "air")
+minetest.register_alias("mapgen_snowblock", "default:dirt_with_grass")
 minetest.register_alias("mapgen_snow", "air")
 minetest.register_alias("mapgen_ice", "default:water_source")
 
-minetest.register_alias("mapgen_cobble", "default:cobble")
-minetest.register_alias("mapgen_mossycobble", "default:mossycobble")
-minetest.register_alias("mapgen_stair_cobble", "air")
-minetest.register_alias("mapgen_stair_desert_stone", "air")
+minetest.register_alias("mapgen_cobble", "default:stone")
+minetest.register_alias("mapgen_mossycobble", "default:stone")
+minetest.register_alias("mapgen_stair_cobble", "default:stone_stair")
+minetest.register_alias("mapgen_stair_desert_stone", "default:desert_stone_stair")
 
 minetest.register_alias("mapgen_tree", "air")
 minetest.register_alias("mapgen_leaves", "air")
@@ -32,6 +32,13 @@ minetest.register_alias("mapgen_jungleleaves", "air")
 minetest.register_alias("mapgen_junglegrass", "air")
 minetest.register_alias("mapgen_pine_tree", "air")
 minetest.register_alias("mapgen_pine_needles", "air")
+
+local mg_name = minetest.get_mapgen_setting("mg_name")
+if mg_name ~= "singlenode" then
+	minetest.set_mapgen_setting("mg_name", "v6")
+	minetest.set_mapgen_setting("mg_flags", "nodungeons,caves,decorations,nobiomes,light")
+	minetest.set_mapgen_setting("mgv6_spflags", "mudflow,biomeblend,nosnowbiomes,notrees,nojungles,noflat")
+end
 
 function default.make_papyrus(pos, size)
 	for y=0,size-1 do
