@@ -41,7 +41,7 @@ awards.register_achievement("award_betterthantorch",{
 -- Lumber Jack
 awards.register_achievement("award_lumberjack_ash",{
 	title = "Ash Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined an ash log!",
 	trigger={
 		type="dig",
 		node="trees:ash_log",
@@ -50,7 +50,7 @@ awards.register_achievement("award_lumberjack_ash",{
 })
 awards.register_achievement("award_lumberjack_aspen",{
 	title = "Aspen Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined an aspen log!",
 	trigger={
 		type="dig",
 		node="trees:aspen_log",
@@ -59,7 +59,7 @@ awards.register_achievement("award_lumberjack_aspen",{
 })
 awards.register_achievement("award_lumberjack_birch",{
 	title = "Birch Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined a birch log!",
 	trigger={
 		type="dig",
 		node="trees:birch_log",
@@ -68,7 +68,7 @@ awards.register_achievement("award_lumberjack_birch",{
 })
 awards.register_achievement("award_lumberjack_maple",{
 	title = "Maple Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined a maple log!",
 	trigger={
 		type="dig",
 		node="trees:maple_log",
@@ -77,7 +77,7 @@ awards.register_achievement("award_lumberjack_maple",{
 })
 awards.register_achievement("award_lumberjack_chestnut",{
 	title = "Chestnut Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined a chestnut log!",
 	trigger={
 		type="dig",
 		node="trees:chestnut_log",
@@ -86,7 +86,7 @@ awards.register_achievement("award_lumberjack_chestnut",{
 })
 awards.register_achievement("award_lumberjack_pine",{
 	title = "Pine Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined a pine log!",
 	trigger={
 		type="dig",
 		node="trees:pine_log",
@@ -95,7 +95,7 @@ awards.register_achievement("award_lumberjack_pine",{
 })
 awards.register_achievement("award_lumberjack_spruce",{
 	title = "Spruce Lumber Jack",
-	description = "You have mined a log!",
+	description = "You have mined a spruce log!",
 	trigger={
 		type="dig",
 		node="trees:spruce_log",
@@ -116,7 +116,7 @@ awards.register_achievement("award_anvil_stone",{
 	},
 })
 awards.register_achievement("award_anvil_dstone",{
-	title = "Smithery",
+	title = "Desert Smithery",
 	description = "Place a Desert Stone Anvil",
 	icon = "anvil.png",
 	background = "bg_default.png",
@@ -130,7 +130,7 @@ awards.register_achievement("award_anvil_dstone",{
 -- Just entered the mine
 awards.register_achievement("award_mine1",{
 	title = "Entering the mine",
-	description = "You have dug 10 stone blocks",
+	description = "You have dug 10 stone",
 	icon = "miniminer.png",
 	background = "bg_mining.png",
 	trigger={
@@ -143,7 +143,7 @@ awards.register_achievement("award_mine1",{
 -- Mini Miner
 awards.register_achievement("award_mine2",{
 	title = "Mini Miner",
-	description = "You have dug 100 stone blocks",
+	description = "You have dug 100 stone",
 	icon = "miniminer.png",
 	background = "bg_mining.png",
 	trigger={
@@ -156,7 +156,7 @@ awards.register_achievement("award_mine2",{
 -- Hardened Miner
 awards.register_achievement("award_mine3",{
 	title = "Hardened Miner",
-	description = "You have dug 1000 stone blocks",
+	description = "You have dug 1000 stone",
 	icon = "miniminer.png",
 	background = "bg_mining.png",
 	trigger={
@@ -169,7 +169,7 @@ awards.register_achievement("award_mine3",{
 -- Master Miner
 awards.register_achievement("award_mine4",{
 	title = "Master Miner",
-	description = "You have dug 10000 stone blocks",
+	description = "You have dug 10000 stone",
 	icon = "miniminer.png",
 	background = "bg_mining.png",
 	trigger={
@@ -182,34 +182,17 @@ awards.register_achievement("award_mine4",{
 -- First Death
 awards.register_achievement("award_death1",{
 	title = "First Death",
-	description = "Oh well, it does not matter you have more lives than a cat",
+	description = "You died. Oh well, it does not matter, you have more lives than a cat",
 	trigger={
 		type="death",
 		target=1,
 	},
 })
 
--- Burned to death
-awards.register_achievement("award_burn",{
-	title = "you're a witch!",
-	description = "Burn to death in a fire",
-})
-
-awards.register_onDeath(function(player,data)
-	print ("running on death function")
-	local pos=player:get_pos()
-
-	if pos and minetest.find_node_near(pos, 1, "fire:basic_flame")~=nil then
-		return "award_burn"
-	end
-	
-	return nil
-end)
-
 -- Spike Placement
 awards.register_achievement("award_spike_ash",{
 	title = "Spiky Ash!",
-	description = "You placed spikes!",
+	description = "You placed ash spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_ash",
@@ -217,8 +200,8 @@ awards.register_achievement("award_spike_ash",{
 	},
 })
 awards.register_achievement("award_spike_aspen",{
-	title = "Spiky Aspen",
-	description = "You placed spikes!",
+	title = "Spiky Aspen!",
+	description = "You placed aspen spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_aspen",
@@ -227,7 +210,7 @@ awards.register_achievement("award_spike_aspen",{
 })
 awards.register_achievement("award_spike_birch",{
 	title = "Spiky Birch!",
-	description = "You placed spikes!",
+	description = "You placed birch spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_birch",
@@ -236,7 +219,7 @@ awards.register_achievement("award_spike_birch",{
 })
 awards.register_achievement("award_spike_maple",{
 	title = "Spiky Maple!",
-	description = "You placed spikes!",
+	description = "You placed maple spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_maple",
@@ -245,7 +228,7 @@ awards.register_achievement("award_spike_maple",{
 })
 awards.register_achievement("award_spike_chestnut",{
 	title = "Spiky Chestnut!",
-	description = "You placed spikes!",
+	description = "You placed chestnut spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_chestnut",
@@ -253,8 +236,8 @@ awards.register_achievement("award_spike_chestnut",{
 	},
 })
 awards.register_achievement("award_spike_pine",{
-	title = "Spiky Pine!!",
-	description = "You placed spikes!",
+	title = "Spiky Pine!",
+	description = "You placed pine spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_pine",
@@ -263,7 +246,7 @@ awards.register_achievement("award_spike_pine",{
 })
 awards.register_achievement("award_spike_spruce",{
 	title = "Spiky Spruce!",
-	description = "You placed spikes!",
+	description = "You placed spruce spikes!",
 	trigger={
 		type="place",
 		node="spikes:spike_spruce",
@@ -272,15 +255,6 @@ awards.register_achievement("award_spike_spruce",{
 })
 
 --Ants
-awards.register_achievement("award_ants_old",{
-	title = "ANTS!",
-	description = "You dug an anthill",
-	trigger={
-		type="dig",
-		node="farming:anthill",
-		target=1,
-	},
-})
 awards.register_achievement("award_ants",{
 	title = "ANTS!",
 	description = "You dug an anthill",
