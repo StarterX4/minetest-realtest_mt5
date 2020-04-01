@@ -213,7 +213,7 @@ minetest.register_abm({
 					inv:add_item("dst", cooked.item)
 					-- take stuff from "src" list
           for i=1,4 do
-					  srcstack = inv:get_stack("src", i)
+					  local srcstack = inv:get_stack("src", i)
             if not srcstack:is_empty() then
               minetest.log("verbose", "Removing "..srcstack:get_name())
 					    srcstack:take_item(1)
