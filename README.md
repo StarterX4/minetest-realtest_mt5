@@ -2,6 +2,8 @@ The RealTest Game
 (Minetest 5 Edition)
 ====================
 
+Version 1.0.0
+
 RealTest is an open-ended sandbox building game with a focus on realism, especially with ores. There are many different ores, and getting new tools is generally much more complex than in similar games. Eventually, you will be able to build a nice little home. There are no monsters.
 
 Read the "Getting started" section if you are new, most game mechanics are not obvious to figure out on your own.
