@@ -1055,7 +1055,7 @@ if progressive_mode then
 		M.after(POLL_FREQ, poll_new_items)
 	end
 
-	poll_new_items()
+	minetest.after(0, poll_new_items)
 
 	realtest_craftguide.add_recipe_filter("Default progressive filter", progressive_filter)
 
