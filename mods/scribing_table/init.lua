@@ -273,7 +273,7 @@ realtest.show_craft_guide_scribing_table = function( player, formname, fields)
 	end
 
 	local formspec = 
-		"size[8,8]"..
+		"size[8,10]"..
 		"label[0,0;Create a "..tostring(plan.description).." by placing any dye this way:]"..
 		-- extra exit button for those tablet users
 		"button_exit[7.2,3.0;1,0.5;quit;Exit]"..
