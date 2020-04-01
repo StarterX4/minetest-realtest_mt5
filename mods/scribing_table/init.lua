@@ -309,8 +309,7 @@ realtest.show_craft_guide_scribing_table = function( player, formname, fields)
 		formspec = formspec..
 			"item_image_button["..tostring((i-1)%8)..","..
 					      tostring(6+math.floor((i-1)/8))..";1,1;"..
-					      v.name..";"..v.name..";"..
-					      minetest.formspec_escape(v.description).."]";
+					      v.name..";"..v.name..";]";
 	end
 
 	minetest.show_formspec( player:get_player_name(), "realtest:craft_guide_scribing_table", formspec );
