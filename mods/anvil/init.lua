@@ -1,6 +1,8 @@
 anvil = {}
 realtest.registered_anvil_recipes = {}
 
+local F = minetest.formspec_escape
+
 function realtest.register_anvil_recipe(RecipeDef)
 	local recipe = {
 		type = RecipeDef.type or "forge",
@@ -390,7 +392,12 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	if( plan.type and plan.type=="weld" ) then
 		how_to = "Weld";
 	end
-		
+
+	local f_output = ""
+	if plan.output and minetest.registered_items[plan.output] then
+		f_output = "item_image[3.5,2.0;1,1;"..plan.output.."]"..
+			"tooltip[3.5,2;0.8,0.9;"..F(minetest.registered_items[plan.output].description).."]"
+	end
 	local formspec =
 		"size[12,8]"..
 		"label[1.5,-0.2;"..how_to.." "..tostring(stack:get_count()).."x "..name.." this way (click on "..how_to.."):]"..
@@ -413,7 +420,7 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		"box[2.9,0.75;0.8,0.9;#BBBBBB]"..
 		"box[4.1,0.75;0.8,0.9;#BBBBBB]"..
 		"box[3.5,1.99;0.8,0.9;#BBBBBB]"..
-		"item_image[3.5,2.0;1,1;"..plan.output.."]"..
+		f_output..
 		-- the 4 simulated slots for the instruments
 		"box[1.0,1.99;0.8,0.9;#BBBBBB]"..
 		"box[6.0,1.99;0.8,0.9;#BBBBBB]"..
@@ -425,7 +432,8 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 
 	-- show the indigrents
 	if( plan.item1 and plan.item1 ~= "" and minetest.registered_items[ plan.item1 ]) then
-		local button = "item_image[2.9,0.75;1,1;"..plan.item1.."]";
+		local button = "item_image[2.9,0.75;1,1;"..plan.item1.."]"..
+			"tooltip[2.9,0.75;0.8,0.9;"..F(minetest.registered_items[plan.item1].description).."]"
 		for _, v in ipairs(realtest.registered_anvil_recipes) do
 			if( v.output == plan.item1 ) then
 				button = "item_image_button[2.9,0.75;1,1;"..v.output..";"..v.output..";]";
@@ -435,7 +443,8 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	end
 	-- the second slot usually takes a plan
 	if( plan.item2 and plan.item2 ~= "" and minetest.registered_items[ plan.item2 ]) then
-		local button = "item_image[4.1,0.75;1,1;"..plan.item2.."]";
+		local button = "item_image[4.1,0.75;1,1;"..plan.item2.."]"..
+			"tooltip[4.1,0.75;0.8,0.9;"..F(minetest.registered_items[plan.item2].description).."]"
 		for _, v in ipairs(realtest.registered_anvil_recipes) do
 			if( v.output == plan.item2 ) then
 				button = "item_image_button[4.1,0.75;1,1;"..v.output..";"..v.output..";]";
@@ -469,7 +478,8 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	end
 	-- welding requires flux
 	if( plan.type and plan.type=="weld") then
-		formspec = formspec.."item_image[6.0,2.0;1,1;minerals:flux]";
+		formspec = formspec.."item_image[6.0,2.0;1,1;minerals:flux]"..
+			"tooltip[6,2;0.8,0.9;"..minetest.registered_items["minerals:flux"].description.."]"
 	end
 		
 

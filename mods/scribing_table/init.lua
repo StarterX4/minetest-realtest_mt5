@@ -1,5 +1,7 @@
 scribing_table = {}
 
+local F = minetest.formspec_escape
+
 realtest.registered_instrument_plans = {}
 function realtest.register_instrument_plan(name, PlanDef)
 	if PlanDef.bitmap then
@@ -282,7 +284,9 @@ realtest.show_craft_guide_scribing_table = function( player, formname, fields)
 		"box[6.5,0.5;0.8,0.9;#BBBBBB]"..
 		"box[6.5,4.5;0.8,0.9;#BBBBBB]"..
 		"item_image[6.5,0.5;1,1;"..plan.paper.."]"..
+                "tooltip[6.5,0.5;0.8,0.9;"..F(minetest.registered_items[plan.paper].description).."]"..
 		"item_image[6.5,4.5;1,1;"..plan.name.."]"..
+                "tooltip[6.5,4.5;0.8,0.9;"..F(minetest.registered_items[plan.name].description).."]"..
 		"image[5.5,1.5;2,3.4;scribing_table_arrow.png]"..
 		"label[0,5.5;Select plan to show:]";
 
@@ -294,7 +298,8 @@ realtest.show_craft_guide_scribing_table = function( player, formname, fields)
 			-- show symbolic green dye where needed (green is cheapest)
 			if( plan.bitmap[ x+5*(y-1)]==1 ) then
 				formspec = formspec..
-					"item_image["..(-0.5+x)..","..(-0.5+y)..";1,1;dye:green]";
+					"item_image["..(-0.5+x)..","..(-0.5+y)..";1,1;dye:green]"..
+					"tooltip["..(-0.5+x)..","..(-0.5+y)..";0.8,0.9;Any dye]"
 			end
 		end
 	end

@@ -1,6 +1,8 @@
 joiner_table = {}
 realtest.registered_joiner_table_recipes = {}
 
+local F = minetest.formspec_escape
+
 function realtest.register_joiner_table_recipe(RecipeDef)
 	local recipe = {
 		item1 = RecipeDef.item1 or "",
@@ -175,6 +177,9 @@ realtest.show_craft_guide_joiner_table = function( player, formname, fields)
 		name = plan.output;
 	end
 		
+	local item_output = ItemStack(plan.output):get_name()
+	local f_output = "item_image[4.5,2;1,1;"..plan.output.."]"..
+		"tooltip[4.5,2;0.8,0.9;"..F(minetest.registered_items[item_output].description).."]"
 
 	local formspec =
 		"size[8,9]"..
@@ -194,27 +199,28 @@ realtest.show_craft_guide_joiner_table = function( player, formname, fields)
 		"box[3.9,0.75;0.8,0.9;#BBBBBB]"..
 		"box[5.1,0.75;0.8,0.9;#BBBBBB]"..
 		"box[4.5,1.98;0.8,0.9;#BBBBBB]"..
-		"item_image[4.5,2;1,1;"..plan.output.."]"..
+		f_output..
 		-- the 4 simulated slots for the instruments
 		"box[0.5,1.5;0.8,0.9;#BBBBBB]"..
 		"box[0.5,2.5;0.8,0.9;#BBBBBB]"..
 		"box[1.5,1.5;0.8,0.9;#BBBBBB]"..
 		"box[1.5,2.5;0.8,0.9;#BBBBBB]"..
-		-- some receipes output more of the same item than just one
-		"label[4.0,2.5;"..tostring(stack:get_count()).."x]"..
 		"label[0,3.5;Select receipe to show:]";
 
 	-- show the indigrents
 	if( plan.item1 and plan.item1 ~= "" and minetest.registered_items[ plan.item1 ]) then
-		formspec = formspec.."item_image[3.9,0.75;1,1;"..plan.item1.."]";
+		formspec = formspec.."item_image[3.9,0.75;1,1;"..plan.item1.."]"..
+			"tooltip[3.9,0.75;0.8,0.9;"..F(minetest.registered_items[plan.item1].description).."]"
 	end
 	-- the second slot usually takes a plan
 	if( plan.item2 and plan.item2 ~= "" and minetest.registered_items[ plan.item2 ]) then
-		formspec = formspec.."item_image[5.1,0.75;1,1;"..plan.item2.."]";
+		formspec = formspec.."item_image[5.1,0.75;1,1;"..plan.item2.."]"..
+			"tooltip[5.1,0.75;0.8,0.9;"..F(minetest.registered_items[plan.item2].description).."]"
 	end
 	-- show the instrument needed
 	if( plan.instrument and plan.instrument ~= "" and minetest.registered_items[ "instruments:"..plan.instrument.."_copper"  ]) then
-		formspec = formspec.."item_image[1.5,1.5;1,1;instruments:"..plan.instrument.."_copper]";
+		formspec = formspec.."item_image[1.5,1.5;1,1;instruments:"..plan.instrument.."_copper]"..
+			"tooltip[1.5,1.5;0.8,0.9;"..F(minetest.registered_items["instruments:"..plan.instrument.."_copper"].description).."]"
 	-- show error message for unkown tools
 	elseif( plan.instrument and plan.instrument ~= "" ) then
 		formspec = formspec.."label[0.5,2.5;ERROR]";
