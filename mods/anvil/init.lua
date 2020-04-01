@@ -382,7 +382,11 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		end
 	end
 	if( not( material )) then
-		if( fields.old_material ) then
+		if fields["amaterial_stone"] or fields["amaterial_desert_stone"] then
+			material = "bismuth"
+		elseif fields["imaterial_stone"] or fields["imaterial_desert_stone"] then
+			return
+		elseif( fields.old_material and not material_button_pressed ) then
 			material = fields.old_material;
 		else
 			material = metals.list[1];
