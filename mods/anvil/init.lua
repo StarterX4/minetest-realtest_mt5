@@ -421,11 +421,9 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		how_to = "Weld";
 	end
 
-	local f_output = ""
-	if plan.output and minetest.registered_items[plan.output] then
-		f_output = "item_image[3.5,2.0;1,1;"..plan.output.."]"..
-			"tooltip[3.5,2;0.8,0.9;"..F(minetest.registered_items[plan.output].description).."]"
-	end
+	local item_output = ItemStack(plan.output):get_name()
+	local f_output = "item_image[3.5,2.0;1,1;"..plan.output.."]"..
+		"tooltip[3.5,2;0.8,0.9;"..F(minetest.registered_items[item_output].description).."]"
 	local formspec =
 		"size[12,8]"..
 		"label[1.5,-0.2;"..how_to.." "..tostring(stack:get_count()).."x "..name.." this way (click on "..how_to.."):]"..
@@ -454,8 +452,6 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		"box[6.0,1.99;0.8,0.9;#BBBBBB]"..
 		-- hide the material (=selected metal) somewhere
 		"field[-10,-10;0.1,0.1;old_material;"..material..";"..material.."]"..
-		-- some receipes output more of the same item than just one
-		"label[3.0,2.5;"..tostring(stack:get_count()).."x]"..
 		"label[0,3.5;Select receipe to show:]";
 
 	-- show the indigrents
