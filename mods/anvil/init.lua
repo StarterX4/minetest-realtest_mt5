@@ -393,12 +393,24 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		end
 	end
 
+	local recipe_output, recipe_item1
+	for f,_ in pairs(fields) do
+		if string.sub(f, 1, 7) == "recipe/" then
+			local spl = string.split(f, "/")
+			recipe_output = spl[2]
+			recipe_item1 = spl[3]
+		end
+	end
+
 	-- select the plan that is to be shown
 	local nr = 1;
 	for i, v in ipairs(realtest.registered_anvil_recipes ) do
-		if( v and v.output and fields[ v.output ]) then
+		if( recipe_output and recipe_item1 and v and v.output and v.item1 and v.output == recipe_output and v.item1 == recipe_item1 ) then
 			nr = i;
 			break
+		elseif( v and v.output and fields[v.output] ) then
+			nr = i;
+			break;
 		elseif( material_button_pressed and v and v.material and material == v.material) then
 			nr = i;
 			break
@@ -518,7 +530,7 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 			formspec = formspec..
 				"item_image_button["..tostring((i-1)%8)..","..
 					      tostring(4+math.floor((i-1)/8))..";1,1;"..
-					      v.output..";"..v.output..";]";
+					      v.output..";recipe/"..v.output.."/"..v.item1..";]";
 --					      minetest.formspec_escape(v.output).."]";
 			i = i+1;
 		end
