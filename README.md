@@ -102,9 +102,9 @@ The furnace is a much more efficient way to smelt stuff. You can smelt 5 items a
 
 To make a furnace, find or build two layers of stone, each layer in a 3×3 square. Remove a single stone from the center of the top layer. The top should look like this:
 
-SSS
-S S
-SSS
+    SSS
+    S S
+    SSS
 
 Drop 9 charcoal into the hole and punch them with the fire starter. Like the bonfire, you might need multiple attempts. Once you succed, the furnace will appear in the hole and burns for a limited time.
 
