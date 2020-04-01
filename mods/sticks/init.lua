@@ -48,7 +48,7 @@ minetest.register_tool("sticks:sticks", {
 					meta:set_float("fuel_time", 0)
 					meta:set_float("fuel_totaltime", 30)
 					meta:set_string("formspec",
-							"invsize[8,10;]"..
+							"size[8,10]"..
 							"list[current_name;src1;1.5,0;1,1;]"..
 							"list[current_name;dst1;1.5,1;1,1;]"..
 							"list[current_name;src2;2.5,1;1,1;]"..
@@ -79,7 +79,7 @@ minetest.register_tool("sticks:sticks", {
 				meta:set_float("fuel_time", 0)
 				meta:set_float("fuel_totaltime", 20)
 				meta:set_string("formspec",
-					"invsize[8,9;]"..
+					"size[8,9]"..
 					"image[2,2;1,1;default_furnace_fire_bg.png"..
 						"^[lowpart:100:default_furnace_fire_fg.png]"..
 					"list[current_name;fuel;2,3;1,1;]"..
