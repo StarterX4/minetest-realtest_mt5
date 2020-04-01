@@ -91,9 +91,9 @@ Then put in the form of ore and smelt it in the bonfire.
 
 You now have a metal, but how to get it out of shape? This requires an anvil. You can make one out of solid rock. To get it, you need a block of stone from all sides. Stone can be folded stone anvil.
 
-Now you need a hammer. How to do it has been described in the section of stone tools.
+Now you need a hammer to work on the anvil. Stone hammers are made of a stone hammer head and a stick.
 
-Now open the anvil, put a metal hammer in the correct slot and break the form.
+Now open the anvil, put a hammer in the correct slot and break the form.
 You got bullion, but what to do with it? Sure to strike! But forging need to know what to strike.
 
 ### Furnace
@@ -112,23 +112,10 @@ If the furnace ran out of fuel, you need to rekindle it with a fire starter.
 
 Beware: The furnace will get destroyed if you break any of the surrounding blocks.
 
-### Smelter and alloys
-The smelter can be crafted from brick blocks and stone slabs. It is able to create alloys from unshaped metals. Insert the unshaped (!) alloys and a fuel to start smelting.
+### Alloys
+So far, you have only smelted the ores directly, but in order to get the stronger metals, you need to combine them into alloys. You can create alloys by smelting multiple unshaped metals together. The smelter is used for this.
 
-Here's a list of available alloys:
-* Unshaped Oroide:		2× U. Copper,       1× U. Tin,     1× U. Zinc
-* Unshaped Monel:		3× U. Nickel,       1× U. Copper
-* Unshaped German Silver:	3× U. Copper,       1× U. Nickel
-* Unshaped Tumbaga:		2× U. Copper,       2× U. Gold
-* Unshaped Albata:		1× U. Copper,       1× U. Nickel,  2× U. Zinc
-* Unshaped Brass:		3× U. Copper,       1× U. Zinc
-* Unshaped Steel:		3× U. Wrought Iron, 1× U. Pig Iron
-* Unshaped Sterling Silver:	3× U. Silver,       1× U. Copper
-* Unshaped Rose Gold:		3× U. Gold,         1× U. Brass
-* Unshaped Bismuth Bronze:	2× U. Copper,       1× U. Bismuth, 1× U. Tin
-* Unshaped Bronze:		3× U. Copper,       1× U. Tin
-* Unshaped Black Bronze:	2× U. Copper,       1× U. Gold,    1× U. Silver
-* Unshaped Black Steel:		2× U. Steel,        1× U. Nickel,  1× U. Black Bronze
+The smelter can be crafted from brick blocks and stone slabs. It needs fuel to operate and is able to create alloys from unshaped metals. Put in the items exactly as you see in the guide and the smelter will start working.
 
 ### Farming
 On your journey you might find seeds. Seeds need soil and water to grow. Soil is created by punching dirt with a hoe. Put the seeds on the soil and make sure there's water nearby and your seeds will slowly start to grow!
