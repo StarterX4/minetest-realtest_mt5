@@ -232,7 +232,7 @@ minetest.register_abm({
 							-- Put result in "dst" list
 							inv:add_item("dst"..i, cookeds[i].item)
 							-- take stuff from "src" list
-							srcstack = inv:get_stack("src"..i, 1)
+							local srcstack = inv:get_stack("src"..i, 1)
 							srcstack:take_item()
 							inv:set_stack("src"..i, 1, srcstack)
 						else
