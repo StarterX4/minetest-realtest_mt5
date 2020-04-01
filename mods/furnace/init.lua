@@ -151,6 +151,13 @@ minetest.register_node("furnace:self_active", {
 		end
 		return true
 	end,
+	on_destruct = function(pos)
+		local meta = minetest.get_meta(pos)
+		if meta:get_int("sound_play") == 1 then
+			minetest.sound_stop(meta:get_int("sound_handle"))
+			meta:set_int("sound_play", 0)
+		end
+	end,
 })
 
 minetest.register_abm({
@@ -318,7 +325,6 @@ minetest.register_abm({
 				meta:set_string("formspec", furnace.formspec)
 				meta:set_int("active", 0)
 				meta:set_int("sound_play", 0)
-				minetest.sound_stop(meta:get_int("sound_handle"))
 				return
 			end
 
