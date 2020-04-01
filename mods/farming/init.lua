@@ -41,22 +41,28 @@ for i=1,4 do
 	})
 --Register the seeds for each plant
     minetest.register_node("farming:seed_"..name, {
-	    drawtype = "raillike",
+	    drawtype = "nodebox",
 	    description = desc.." Seeds",
-	    tiles = {"farming_seed_placed.png"},
+	    tiles = {"farming_seed_placed.png","blank.png"},
 	    inventory_image = "farming_"..name.."_seed.png",
 	    groups = {snappy=3, plant=1, attached_node=1},
             sounds = default.node_sound_defaults(),
 	    paramtype = "light",
 	    sunlight_propagates = true,
 	    walkable = false,
-	    selection_box = {
-        type = "fixed",
+	    node_box = {
+            type = "fixed",
 	    fixed = {
-		    {-0.500000,-0.500000,-0.500000,0.500000,-0.3,0.500000},
+		    {-0.5,-0.5,-0.5,0.5,-0.49,0.5},
 	        },
-        },
-        drop = "",
+            },
+	    selection_box = {
+            type = "fixed",
+	    fixed = {
+		    {-0.5,-0.5,-0.5,0.5,-0.3,0.5},
+	        },
+            },
+	    drop = "",
     })
 --And finally, the abms to control growth
     minetest.register_abm({
