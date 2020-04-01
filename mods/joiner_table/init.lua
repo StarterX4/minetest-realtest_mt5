@@ -234,8 +234,7 @@ realtest.show_craft_guide_joiner_table = function( player, formname, fields)
 		formspec = formspec..
 			"item_image_button["..tostring((i-1)%8)..","..
 					      tostring(4+math.floor((i-1)/8))..";1,1;"..
-					      v.output..";"..v.output..";"..
-					      minetest.formspec_escape(v.output).."]";
+					      v.output..";"..v.output..";]";
 	end
 
 	minetest.show_formspec( player:get_player_name(), "realtest:craft_guide_joiner_table", formspec );
