@@ -93,6 +93,20 @@ Now you need a hammer. How to do it has been described in the section of stone t
 Now open the anvil, put a metal hammer in the correct slot and break the form.
 You got bullion, but what to do with it? Sure to strike! But forging need to know what to strike.
 
+### Furnace
+
+The furnace is a much more efficient way to smelt stuff. You can smelt 5 items at once!
+
+To make a furnace, first find or build a flat square of 3×3 stone with a hole in the midde, like so:
+
+XXX
+X X
+XXX
+
+Drop 9 charcoal into the hole punch them with the fire starter. Like the bonfire, you might need multiple attempts.
+
+Beware: The furnace will get destroyed if you break any of the surrounding blocks.
+
 ### Futher playing
 There are many ores to find and many things to craft. From now on, you should be able to proceed on your own. Have fun!
 
