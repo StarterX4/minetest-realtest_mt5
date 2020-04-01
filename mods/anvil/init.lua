@@ -3,6 +3,18 @@ realtest.registered_anvil_recipes = {}
 
 local F = minetest.formspec_escape
 
+local breakline = function(str)
+	local strs = string.split(str, " ")
+	local new = ""
+	for s=1, #strs do
+		new = new .. strs[s]
+		if s ~= #strs then
+			new = new .. "\n"
+		end
+	end
+	return new
+end
+
 function realtest.register_anvil_recipe(RecipeDef)
 	local recipe = {
 		type = RecipeDef.type or "forge",
@@ -357,11 +369,21 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	if( formname ~= "realtest:craft_guide_anvil" or not( player ) or fields.quit) then
 		return;
 	end
-	if( not( fields.material )) then
+	local material
+	local mtypes = { "a", "m", "i" } -- anvil, metal, instrument
+	for m=1, #metals.list do
+		for _,t in pairs(mtypes) do
+			if fields[t.."material_"..metals.list[m]] then
+				material = metals.list[m]
+				break
+			end
+		end
+	end
+	if( not( material )) then
 		if( fields.old_material ) then
-			fields.material = fields.old_material;
+			material = fields.old_material;
 		else
-			fields.material = metals.list[1];
+			material = metals.list[1];
 		end
 	end
 
@@ -425,7 +447,7 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		"box[1.0,1.99;0.8,0.9;#BBBBBB]"..
 		"box[6.0,1.99;0.8,0.9;#BBBBBB]"..
 		-- hide the material (=selected metal) somewhere
-		"field[-10,-10;0.1,0.1;old_material;"..fields.material..";"..fields.material.."]"..
+		"field[-10,-10;0.1,0.1;old_material;"..material..";"..material.."]"..
 		-- some receipes output more of the same item than just one
 		"label[3.0,2.5;"..tostring(stack:get_count()).."x]"..
 		"label[0,3.5;Select receipe to show:]";
@@ -471,7 +493,7 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 			instrument_material = "copper"
 		end
 		-- the instrument may need to be made out of a diffrent material
-		formspec = formspec.."item_image_button[1.0,2.0;1,1;instruments:"..plan.instrument.."_"..instrument_material..";material;"..instrument_material.."]";
+		formspec = formspec.."item_image_button[1.0,2.0;1,1;instruments:"..plan.instrument.."_"..instrument_material..";imaterial_"..instrument_material..";]";
 	-- show error message for unkown tools
 	elseif( plan.instrument and plan.instrument ~= "" ) then
 		formspec = formspec.."label[0.5,2.5;ERROR]";
@@ -486,7 +508,7 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	-- show a list of all receipes to select from
 	local i = 1;
 	for _, v in ipairs(realtest.registered_anvil_recipes) do
-		if( v and not( v.material ) or v.material == fields.material) then 
+		if( v and not( v.material ) or v.material == material) then
 			formspec = formspec..
 				"item_image_button["..tostring((i-1)%8)..","..
 					      tostring(4+math.floor((i-1)/8))..";1,1;"..
@@ -500,8 +522,8 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		formspec = formspec..
 				"image_button["..tostring(8+(i-1)%4)..","..
 					      tostring(math.floor((i-1)/4))..";1,1;"..
-					      "metals_"..v.."_block.png;material;"..
-					      v.."]";
+					      "metals_"..v.."_block.png;mmaterial_"..v..";"..
+					      breakline(metals.desc_list[i]).."]";
 	end
 
 	-- show the anvils that can do this task
@@ -513,7 +535,7 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	end
 	for i,anvil in ipairs( anvils ) do
 		if( anvil[3] >= plan.level or plan.type=="weld") then
-			formspec = formspec.."item_image_button["..tostring(i-1)..",7.3;1,1;anvil:anvil_"..anvil[1]..";material;"..anvil[1].."]";
+			formspec = formspec.."item_image_button["..tostring(i-1)..",7.3;1,1;anvil:anvil_"..anvil[1]..";amaterial_"..anvil[1]..";"..breakline(anvil[2]).."]";
 		end
 	end
 
