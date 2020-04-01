@@ -64,15 +64,15 @@ Also, you can just climb up the tree and leave the thing in the chest.
 
 To start a bonfire, you need something to ignite it. Connect two sticks in the crafting grid. You will get the fire starter, a tool that can make a bonfire or furnace.
 
-Now throw five sticks on the ground and use them two sticks.
+Now throw five sticks on the ground and punch them with the fire starter.
 
-A fire might not work the first time. You might need to spend a few lighters, to do this.
+A fire might not work the first time. You might need multiple attempts.
 
-Now you use the right mouse button to see the fire and its interface.
+Now you use the right mouse button to see the bonfire's inventory.
 
 Left are slots: Lower fuel and top for what you need to cook. On the right are slots for the result.
 
-Bonfire will not disappear if you do not put the fuel, but goes out. Later it will be easy to rekindle: Put in the the fuel and use the sticks.
+Bonfire will not disappear if you do not put the fuel, but it goes out. Later it will be easy to rekindle: Put in the the fuel and use the fire starter.
 
 Now let's make a couple of torches. Put a stick in the source slot and the result will be two torches on each stick.
 
@@ -97,15 +97,20 @@ You got bullion, but what to do with it? Sure to strike! But forging need to kno
 
 The furnace is a much more efficient way to smelt stuff. You can smelt 5 items at once!
 
-To make a furnace, first find or build a flat square of 3×3 stone with a hole in the midde, like so:
+To make a furnace, find or build two layers of stone, each layer in a 3×3 square. Remove a single stone from the center of the top layer. The top should look like this:
 
-XXX
-X X
-XXX
+SSS
+S S
+SSS
 
-Drop 9 charcoal into the hole punch them with the fire starter. Like the bonfire, you might need multiple attempts.
+Drop 9 charcoal into the hole and punch them with the fire starter. Like the bonfire, you might need multiple attempts. Once you succed, the furnace will appear in the hole and burns for a limited time.
+
+If the furnace ran out of fuel, you need to rekindle it with a fire starter.
 
 Beware: The furnace will get destroyed if you break any of the surrounding blocks.
+
+### Farming
+On your journey you might find seeds. Seeds need soil and water to grow. Soil is created by punching dirt with a hoe. Put the seeds on the soil and make sure there's water nearby and your seeds will slowly start to grow!
 
 ### Futher playing
 There are many ores to find and many things to craft. From now on, you should be able to proceed on your own. Have fun!
