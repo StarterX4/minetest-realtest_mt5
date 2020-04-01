@@ -209,11 +209,3 @@ minetest.register_craft({
 	}
 })
 
-crafter.register_craft({
-	type = "smelting",
-	output = "default:bronze_ingot",
-	recipe = {
-    {"default:copper_ingot"},
-    {"default:steel_ingot"}
-  }
-})
