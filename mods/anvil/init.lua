@@ -371,10 +371,12 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	end
 	local material
 	local mtypes = { "a", "m", "i" } -- anvil, metal, instrument
+	local material_button_pressed = false
 	for m=1, #metals.list do
 		for _,t in pairs(mtypes) do
 			if fields[t.."material_"..metals.list[m]] then
 				material = metals.list[m]
+				material_button_pressed = true
 				break
 			end
 		end
@@ -392,6 +394,10 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	for i, v in ipairs(realtest.registered_anvil_recipes ) do
 		if( v and v.output and fields[ v.output ]) then
 			nr = i;
+			break
+		elseif( material_button_pressed and v and v.material and material == v.material) then
+			nr = i;
+			break
 		end
 	end
 	local plan = realtest.registered_anvil_recipes[ nr ];
