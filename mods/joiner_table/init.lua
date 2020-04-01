@@ -222,8 +222,16 @@ realtest.show_craft_guide_joiner_table = function( player, formname, fields)
 	end
 	-- show the instrument needed
 	if( plan.instrument and plan.instrument ~= "" and minetest.registered_items[ "instruments:"..plan.instrument.."_copper"  ]) then
-		formspec = formspec.."item_image[1.5,1.5;1,1;instruments:"..plan.instrument.."_copper]"..
-			"tooltip[1.5,1.5;0.8,0.9;"..F(minetest.registered_items["instruments:"..plan.instrument.."_copper"].description).."]"
+		formspec = formspec.."item_image[1.5,1.5;1,1;instruments:"..plan.instrument.."_copper]"
+		local tt
+		if plan.instrument == "chisel" then
+			tt = "Any chisel"
+		elseif plan.instrument == "saw" then
+			tt = "Any saw"
+		end
+		if tt then
+			formspec = formspec.."tooltip[1.5,1.5;0.8,0.9;"..tt.."]"
+		end
 	-- show error message for unkown tools
 	elseif( plan.instrument and plan.instrument ~= "" ) then
 		formspec = formspec.."label[0.5,2.5;ERROR]";
