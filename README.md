@@ -2,7 +2,7 @@ The RealTest Game
 (Minetest 5 Edition)
 ====================
 
-Version 1.1.0
+Version 1.1.1
 
 RealTest is an open-ended sandbox building game with a focus on realism, especially with ores. There are many different ores, and getting new tools is generally much more complex than in similar games. Eventually, you will be able to build a nice little home. There are no monsters.
 
@@ -124,11 +124,9 @@ On your journey you might find seeds. Seeds need soil and water to grow. Soil is
 There are many ores to find and many things to craft. From now on, you should be able to proceed on your own. Have fun!
 
 ## Credits
-This game was developed by minetest.net user sda97 and released in 2012. In 2020, Wuzzy made some changes to make this game compatible with Minetest 5.0.0, but the lion's share of the work was done by sda97.
+This game was developed by minetest.net user sda97 and released in 2012. In 2020, Wuzzy made some changes to make this game compatible with Minetest 5.0.0, but the lion's share of the work was done by sda97. See <https://github.com/sda97ghb/realtest/>.
 
 It contains many mods by other people as well, see the respective README files inside the mods.
-
-For developers: https://github.com/sda97ghb/realtest/issues/12
 
 ## License
 This game is free software, released under the GNU General Public License version 3.
