@@ -153,6 +153,9 @@ realtest.show_craft_guide_joiner_table = function( player, formname, fields)
 	if( formname ~= "realtest:craft_guide_joiner_table" or not( player ) or fields.quit) then
 		return;
 	end
+	if fields.nothing then
+		return
+	end
 
 	-- select the plan that is to be shown
 	local nr = 1;

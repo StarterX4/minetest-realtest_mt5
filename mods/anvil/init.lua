@@ -369,6 +369,9 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 	if( formname ~= "realtest:craft_guide_anvil" or not( player ) or fields.quit) then
 		return;
 	end
+	if fields.nothing then
+		return
+	end
 	local material
 	local mtypes = { "a", "m", "i" } -- anvil, metal, instrument
 	local material_button_pressed = false
@@ -455,8 +458,8 @@ realtest.show_craft_guide_anvil = function( player, formname, fields)
 		-- buttons that do nothing; they exist just so that the interface looks similar
 		"button[0.5,0.75;1.35,1;nothing;Forge]"..
 		"button[1.6,0.75;0.9,1;nothing;x10]"..
-		"button[5.5,0.75;1.35,1;buttonWeld;Weld]"..
-		"button[6.6,0.75;0.9,1;buttonWeld10;x10]"..
+		"button[5.5,0.75;1.35,1;nothing;Weld]"..
+		"button[6.6,0.75;0.9,1;nothing;x10]"..
 		"image[3.69,0.72;0.54,1.5;anvil_arrow.png]"..
 		-- background for the inventory slots
 		"box[2.9,0.75;0.8,0.9;#BBBBBB]"..
