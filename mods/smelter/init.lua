@@ -1,5 +1,7 @@
 smelter={}
 
+local F = minetest.formspec_escape
+
 
 smelter.smelter_formspec =
 	"size[8,7]"..
@@ -9,12 +11,96 @@ smelter.smelter_formspec =
 	"list[current_name;dst;6,0;2,2;]"..
 	"list[current_player;main;0,3;8,4;]"..
 	"image[4.5,1;1,1;furnace_arrow.png^[transformR90]"..
+	"button[0,2;1,1;guide;Guide]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..
 	"listring[current_player;main]"..
 	"listring[current_name;fuel]"..
 	"listring[current_player;main]"..
 	"listring[current_name;dst]"
+
+local function get_guide(player, fields)
+	if fields and fields.quit then
+		return
+	end
+	local formspec = "size[8,7]"..
+	"image[3,0;1,1;default_furnace_fire_bg.png]"..
+	"image[4.5,1;1,1;furnace_arrow.png^[transformR90]"..
+	"button_exit[7,2;1,1;exit_guide;Exit]"..
+	-- fuel
+	"box[3,1;0.8,0.9;#BBBBBB]"..
+	-- src
+	"box[0,0;0.8,0.9;#BBBBBB]"..
+	"box[0,1;0.8,0.9;#BBBBBB]"..
+	"box[1,0;0.8,0.9;#BBBBBB]"..
+	"box[1,1;0.8,0.9;#BBBBBB]"..
+	-- dst
+	"box[6,0;0.8,0.9;#BBBBBB]"..
+	"box[6,1;0.8,0.9;#BBBBBB]"..
+	"box[7,0;0.8,0.9;#BBBBBB]"..
+	"box[7,1;0.8,0.9;#BBBBBB]"
+	local get_desc = function(itemstring)
+		return ItemStack(itemstring):get_description()
+	end
+	if fields then
+		local current_craft
+		for c=1, #crafter.crafts do
+			local craft = crafter.crafts[c]
+			local output1 = ItemStack(craft.output):get_name()
+			if fields[output1] and craft.type == "smelting" and craft._w <= 2 and craft._h <= 2 then
+				current_craft = crafter.crafts[c]
+				break
+			end
+		end
+		if current_craft then
+			local recipe = current_craft.recipe
+			-- src
+			for y=1, 2 do
+			for x=1, 2 do
+			if recipe[y] and recipe[y][x] then
+				local fxfy = (x-1) .. "," .. (y-1)
+				formspec = formspec .. "item_image["..fxfy..";1,1;"..recipe[y][x].."]"..
+					"tooltip["..fxfy..";0.8,0.9;"..F(get_desc(recipe[y][x])).."]"
+			end
+			end
+			end
+			-- fuel
+			formspec = formspec .. "label[3.05,1.2;Fuel]"
+			-- dst
+			formspec = formspec .. "item_image[6,0;1,1;"..current_craft.output.."]" ..
+				"tooltip[6,0;0.8,0.9;"..F(get_desc(current_craft.output)).."]"
+		end
+	end
+
+	-- Display all available outputs
+	local x, y = 0, 3
+	for c=1, #crafter.crafts do
+		local craft = crafter.crafts[c]
+		if craft.type == "smelting" and craft._w <= 2 and craft._h <= 2 then
+			local output = craft.output
+			local output1 = ItemStack(craft.output):get_name()
+			formspec = formspec .. "item_image_button["..x..","..y..";1,1;"..output..";"..output1..";]"
+			x = x + 1
+			if x >= 8 then
+				x = 0
+				y = y + 1
+			end
+		end
+	end
+	minetest.show_formspec(player:get_player_name(), "smelter:guide", formspec)
+end
+
+minetest.register_on_player_receive_fields(function(player, formname, fields)
+	if formname == "smelter:guide" then
+		get_guide(player, fields)
+	end
+end)
+
+local function receive_node_fields(pos, formname, fields, player)
+	if fields.guide then
+		get_guide(player)
+	end
+end
 
 minetest.register_node("smelter:smelter", {
 	description = "Smelter",
@@ -45,6 +131,7 @@ minetest.register_node("smelter:smelter", {
 		end
 		return true
 	end,
+	on_receive_fields = receive_node_fields,
 })
 
 minetest.register_node("smelter:smelter_active", {
@@ -78,6 +165,7 @@ minetest.register_node("smelter:smelter_active", {
 		end
 		return true
 	end,
+	on_receive_fields = receive_node_fields,
 })
 
 
@@ -153,6 +241,7 @@ minetest.register_abm({
 				"list[current_name;dst;6,0;2,2;]"..
 				"list[current_player;main;0,3;8,4;]"..
 				"image[4.5,1;1,1;furnace_arrow.png^[transformR90]"..
+				"button[0,2;1,1;guide;Guide]"..
 				"listring[current_player;main]"..
 				"listring[current_name;src]"..
 				"listring[current_player;main]"..
