@@ -1,35 +1,37 @@
 function default.get_oven_active_formspec(pos, percent)
 	local formspec =
-		"size[8,7]"..
-		"image[3.5,0.5;1,1;furnace_fire_bg.png^[lowpart:"..
+		"size[8,9]"..
+		"image[2,2;1,1;furnace_fire_bg.png^[lowpart:"..
 		(100-percent)..":furnace_fire_fg.png]"..
-		"list[current_name;fuel;3.5,1.5;1,1;]"..
-		"list[current_name;src;2,0.5;1,1;]"..
-		"list[current_name;dst;5,0.5;1,1;]"..
-		"list[current_player;main;0,3;8,4;]"..
+		"list[current_name;fuel;2,3;1,1;]"..
+		"list[current_name;src;2,1;1,1;]"..
+		"list[current_name;dst;5,1;2,1;]"..
+		"list[current_player;main;0,5;8,4;]"..
+		"image[3.5,1;1,1;furnace_arrow.png^[transformR90]"..
 		"listring[current_player;main]"..
 		"listring[current_name;src]"..
 		"listring[current_player;main]"..
-		"listring[current_name;fuel]"..
+		"listring[current_name;dst]"..
 		"listring[current_player;main]"..
-		"listring[current_name;dst]"
+		"listring[current_name;fuel]"
 
 	return formspec
 end
 
 default.oven_inactive_formspec =
-	"size[8,7]"..
-	"image[3.5,0.5;1,1;furnace_fire_bg.png]"..
-	"list[current_name;fuel;3.5,1.5;1,1;]"..
-	"list[current_name;src;2,0.5;1,1;]"..
-	"list[current_name;dst;5,0.5;1,1;]"..
-	"list[current_player;main;0,3;8,4;]"..
+	"size[8,9]"..
+	"image[2,2;1,1;default_furnace_fire_bg.png]"..
+	"list[current_name;fuel;2,3;1,1;]"..
+	"list[current_name;src;2,1;1,1;]"..
+	"list[current_name;dst;5,1;2,1;]"..
+	"list[current_player;main;0,5;8,4;]"..
+	"image[3.5,1;1,1;furnace_arrow.png^[transformR90]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..
 	"listring[current_player;main]"..
-	"listring[current_name;fuel]"..
+	"listring[current_name;dst]"..
 	"listring[current_player;main]"..
-	"listring[current_name;dst]"
+	"listring[current_name;fuel]"
 
 minetest.register_node("oven:oven", {
 	description = "Oven",
