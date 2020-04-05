@@ -337,3 +337,16 @@ minetest.register_abm({
 		end
 	end,
 })
+
+minetest.register_lbm({
+	label = "Reset furnace sound",
+	name = "furnace:reset_sound",
+	nodenames = { "furnace:self_active" },
+	run_at_every_load = true,
+	action = function(pos, node)
+		local meta = minetest.get_meta(pos)
+		if meta and meta:get_int("sound_play") == 1 then
+			meta:set_int("sound_play", 0)
+		end
+	end,
+})
