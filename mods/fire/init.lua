@@ -62,7 +62,7 @@ function fire.update_sounds_around(pos)
 	if not sound then
 		if should_have_sound then
 			fire.sounds[p0_hash] = {
-				handle = minetest.sound_play(wanted_sound, {pos=cp, loop=true}),
+				handle = minetest.sound_play(wanted_sound, {pos=cp, loop=true}, true),
 				name = wanted_sound.name,
 			}
 		end
@@ -73,7 +73,7 @@ function fire.update_sounds_around(pos)
 		elseif sound.name ~= wanted_sound.name then
 			minetest.sound_stop(sound.handle)
 			fire.sounds[p0_hash] = {
-				handle = minetest.sound_play(wanted_sound, {pos=cp, loop=true}),
+				handle = minetest.sound_play(wanted_sound, {pos=cp, loop=true}, true),
 				name = wanted_sound.name,
 			}
 		end

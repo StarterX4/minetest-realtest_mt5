@@ -16,7 +16,7 @@ minetest.register_globalstep(function(dtime)
 							minetest.sound_play("item_drop_pickup", {
 								to_player = player:get_player_name(),
 								gain = 0.4,
-							})
+							}, true)
 						end
 						object:get_luaentity().itemstring = ""
 						object:remove()
@@ -52,7 +52,7 @@ minetest.register_globalstep(function(dtime)
 										minetest.sound_play("item_drop_pickup", {
 											to_player = player:get_player_name(),
 											gain = 0.4,
-										})
+										}, true)
 									end
 									object:get_luaentity().itemstring = ""
 									object:remove()

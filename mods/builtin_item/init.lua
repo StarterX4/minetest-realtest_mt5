@@ -94,7 +94,7 @@ minetest.register_entity(":__builtin:item", {
 		
 		local name = minetest.get_node(p).name
 		if name == "default:lava_flowing" or name == "default:lava_source" then
-			minetest.sound_play("builtin_item_lava", {pos=self.object:get_pos()})
+			minetest.sound_play("builtin_item_lava", {pos=self.object:get_pos()}, true)
 			self.object:remove()
 			return
 		end

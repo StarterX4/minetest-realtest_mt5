@@ -244,7 +244,7 @@ minetest.register_entity(
                gain = OPEN_BAG_SOUND_GAIN,
                max_hear_distance = OPEN_BAG_SOUND_DIST,
                loop = false
-            })
+            }, true)
       end,
 
       on_step = function(self, dt)
@@ -374,7 +374,7 @@ local function rezEntity(stack, pos, player)
          gain = DROP_BAG_SOUND_GAIN,
          max_hear_distance = DROP_BAG_SOUND_DIST,
          loop = false
-      })
+      }, true)
 
    return ItemStack(nil)
 end
