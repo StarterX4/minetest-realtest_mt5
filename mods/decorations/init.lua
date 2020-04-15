@@ -58,7 +58,7 @@ for _, mineral in ipairs(decor_minerals) do
 	for i, tree_name in ipairs(realtest.registered_trees_list) do
 		local tree = realtest.registered_trees[tree_name]
 		minetest.register_node("decorations:"..mineral[1].."_table_"..i, {
-			description = mineral[2].." Table",
+			description = mineral[2].." "..tree.description.." Table",
 			drawtype = "mesh",
 			mesh = "decorations_table.obj",
 			paramtype = "light",
