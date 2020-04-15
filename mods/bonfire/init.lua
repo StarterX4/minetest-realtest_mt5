@@ -184,7 +184,7 @@ minetest.register_abm({
 				meta:set_string("infotext","Bonfire active: "..percent.."%")
 				hacky_swap_node(pos,"bonfire:self_active")
 				if meta:get_int("sound_play") ~= 1 then
-					meta:set_int("sound_handle", minetest.sound_play("bonfire_burning", {pos=pos, max_hear_distance = 4,loop=true,gain=0.8}, true))
+					meta:set_int("sound_handle", minetest.sound_play("bonfire_burning", {pos=pos, max_hear_distance = 4,loop=true,gain=0.8}))
 					meta:set_int("sound_play", 1)
 				end
 				meta:set_string("formspec",
