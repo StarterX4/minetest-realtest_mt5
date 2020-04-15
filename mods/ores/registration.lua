@@ -42,8 +42,12 @@ function realtest.register_ore(name, OreDef)
                 else
                         wherein_textures = {name_..".png"}
                 end
+                local str_in = ""
+                if wherein == "default:desert_stone" then
+                        str_in = " in Desert Stone"
+                end
                 minetest.register_node(":"..name.."_in_"..wherein_, {
-                        description = ore.description .. " Ore",
+                        description = ore.description .. " Ore" .. str_in,
                         tiles = wherein_textures,
                         particle_image = {ore.particle_image},
                         groups = {cracky=3,drop_on_dig=1,ore=1,dropping_like_stone=1},
