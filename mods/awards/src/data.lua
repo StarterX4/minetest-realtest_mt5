@@ -17,7 +17,7 @@ local function convert_data()
 			name = name.name
 		end
 		data.name = name
-		print("Converting data for " .. name)
+		minetest.log("verbose", "[awards] Converting data for " .. name)
 
 		-- Just rename counted
 		local counted = {
