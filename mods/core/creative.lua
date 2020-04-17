@@ -28,10 +28,7 @@ minetest.after(0, function()
 		on_put = function(inv, listname, index, stack, player)
 		end,
 		on_take = function(inv, listname, index, stack, player)
-			minetest.log("action", player:get_player_name().." takes item from creative inventory; listname="..dump(listname)..", index="..dump(index)..", stack="..dump(stack))
-			if stack then
-				minetest.log("action", "stack:get_name()="..dump(stack:get_name())..", stack:get_count()="..dump(stack:get_count()))
-			end
+			minetest.log("action", player:get_player_name().." takes item from creative inventory; listname=\""..tostring(listname).."\", index="..dump(index)..", stack=\""..stack:to_string().."\"")
 		end,
 	})
 	local creative_list = {}
