@@ -39,6 +39,7 @@ minetest.register_on_joinplayer(
 		elseif mf_skins_table[skin_name] == "nyan" then
 			skin_gender = { "player_nyan.png" }
 		end
+		local init_skin = false
 		if not skin_gender then
 			local r = math.random(1,2)
 			if r == 1 then
@@ -48,6 +49,8 @@ minetest.register_on_joinplayer(
 				skin_gender = { "player_female.png" }
 				mf_skins_table[skin_name] = "f"
 			end
+			minetest.log("action", "[mf_skins] Initial skin for "..pn.." set to \""..tostring(mf_skins_table[skin_name]).."\"")
+			init_skin = true
 			save_skins()
 		end
 
@@ -57,7 +60,9 @@ minetest.register_on_joinplayer(
 			textures = skin_gender
 		})
 
-		minetest.log("action", "Skin for "..pn.." was set to "..dump(mf_skins_table[skin_name]))
+		if not init_skin then
+			minetest.log("action", "[mf_skins] Active skin for "..pn..": \""..tostring(mf_skins_table[skin_name]).."\"")
+		end
 	end
 )
 
@@ -92,7 +97,8 @@ minetest.register_chatcommand("skin", {
 				end
 
 				mf_skins_table["skin_"..username] = gender
-				minetest.chat_send_player(name, "Set skin for "..username.." to "..gender..".")
+				minetest.chat_send_player(name, "Set skin for "..username.." to \""..gender.."\".")
+				minetest.log("action", "[mf_skins] Skin for "..username.." set to \""..gender.."\".")
 				save_skins()
 				local skin_gender = { "player_male.png" }
 				if gender == "f" then
