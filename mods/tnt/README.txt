@@ -24,5 +24,23 @@ There are different ways to blow up TNT:
 3. Activate it with mesecons (fastest way)
 Be aware of the damage radius of 7 blocks!
 
-License:
-WTFPL
+## License of mod
+CC0 1.0
+
+## Sound credits:
+
+TumeniNodes (CC0 1.0)
+   tnt_explode.ogg
+   renamed, edited, and converted to .ogg from Explosion2.wav
+   by steveygos93 (CC0 1.0)
+   <https://freesound.org/s/80401/>
+
+tnt_ignite.ogg
+   renamed, edited, and converted to .ogg from sparkler_fuse_nm.wav
+   by theneedle.tv (CC0 1.0)
+   <https://freesound.org/s/316682/>
+
+tnt_gunpowder_burning.ogg
+   renamed, edited, and converted to .ogg from road flare ignite burns.wav
+   by frankelmedico (CC0 1.0)
+   <https://freesound.org/s/348767/>
