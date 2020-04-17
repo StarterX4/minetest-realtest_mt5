@@ -191,7 +191,7 @@ end)
 
 minetest.register_chatcommand("time", {
 	params = "<0...24000>",
-	description = "set time of day",
+	description = "Set time of day",
 	privs = {settime=true},
 	func = function(name, param)
 		if param == "" then
