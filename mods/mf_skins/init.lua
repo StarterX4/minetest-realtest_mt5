@@ -48,6 +48,7 @@ minetest.register_on_joinplayer(
 				skin_gender = { "player_female.png" }
 				mf_skins_table[skin_name] = "f"
 			end
+			save_skins()
 		end
 
 		player:set_properties({
