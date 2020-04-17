@@ -31,13 +31,23 @@ minetest.register_on_joinplayer(
 		local pn = player:get_player_name()
 		local skin_name = "skin_"..pn
 
-		local skin_gender = { "player_male.png" }
-		minetest.log("action", "Skin for "..pn.." was set to "..dump(mf_skins_table[skin_name]))
-		if mf_skins_table[skin_name] == "f" then
+		local skin_gender
+		if mf_skins_table[skin_name] == "m" then
+			skin_gender = { "player_male.png" }
+		elseif mf_skins_table[skin_name] == "f" then
 			skin_gender = { "player_female.png" }
-		end
-		if mf_skins_table[skin_name] == "nyan" then
+		elseif mf_skins_table[skin_name] == "nyan" then
 			skin_gender = { "player_nyan.png" }
+		end
+		if not skin_gender then
+			local r = math.random(1,2)
+			if r == 1 then
+				skin_gender = { "player_male.png" }
+				mf_skins_table[skin_name] = "m"
+			else
+				skin_gender = { "player_female.png" }
+				mf_skins_table[skin_name] = "f"
+			end
 		end
 
 		player:set_properties({
@@ -45,6 +55,8 @@ minetest.register_on_joinplayer(
 			visual_size = {x=1, y=1},
 			textures = skin_gender
 		})
+
+		minetest.log("action", "Skin for "..pn.." was set to "..dump(mf_skins_table[skin_name]))
 	end
 )
 
@@ -61,7 +73,15 @@ minetest.register_chatcommand("skin", {
 		end
 		if minetest.get_player_privs(name).basic_privs  or name==username then
 			if username and minetest.player_exists(username) then
-				if gender ~= "f" and gender ~= "m" and gender ~= "nyan" then gender = "m" end
+				if gender ~= "f" and gender ~= "m" and gender ~= "nyan" then
+					-- Pick random skin if invalid
+					local r = math.random(1,2)
+					if r == 1 then
+						gender = "m"
+					else
+						gender = "f"
+					end
+				end
 
 				mf_skins_table["skin_"..username] = gender
 				minetest.chat_send_player(name, "Set skin for "..username.." to "..gender..".")
