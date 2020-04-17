@@ -74,6 +74,13 @@ minetest.register_chatcommand("skin", {
 		end
 		if minetest.get_player_privs(name).basic_privs  or name==username then
 			if username and minetest.player_exists(username) then
+				if gender == "nyan" then
+					-- Nyan skin only for privileged players to prevent abuse
+					local privs = minetest.get_player_privs(username)
+					if not privs.server then
+						gender = nil
+					end
+				end
 				if gender ~= "f" and gender ~= "m" and gender ~= "nyan" then
 					-- Pick random skin if invalid
 					local r = math.random(1,2)
@@ -103,7 +110,7 @@ minetest.register_chatcommand("skin", {
 				return false, "That player does not exist."
 			end
 		else
-			return false, "You are not authorized to run that command."
+			return false, "You are not authorized to run this command (required privilege: 'basic_privs')."
 		end
 		return true
 	end
