@@ -51,13 +51,16 @@ minetest.register_on_joinplayer(
 -- commands
 
 minetest.register_chatcommand("skin", {
-    params = "name gender",
-    description = "Set a player's default skin to either male (m) or female (f).",
-    func = function(name, param)
+	params = "<name> <gender>",
+	description = "Set a player's skin to either male (m) or female (f).",
+	func = function(name, param)
 		-- this line borrowed from worldedit
 		local _,_, username, gender = param:find("^([^%s]+)%s+(.+)$")
+		if not username or not gender then
+			return false, "Invalid syntax."
+		end
 		if minetest.get_player_privs(name).basic_privs  or name==username then
-			if minetest.auth_table[username] then
+			if username and minetest.player_exists(username) then
 				if gender ~= "f" and gender ~= "m" and gender ~= "nyan" then gender = "m" end
 
 				mf_skins_table["skin_"..username] = gender
@@ -76,11 +79,12 @@ minetest.register_chatcommand("skin", {
 					textures = skin_gender
 				})
 			else
-				minetest.chat_send_player(name, "That player does not exist.")
+				return false, "That player does not exist."
 			end
 		else
-				minetest.chat_send_player(name, "You are not authorized to run that command.")
+			return false, "You are not authorized to run that command."
 		end
-    end
+		return true
+	end
 })
 
