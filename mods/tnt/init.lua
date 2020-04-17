@@ -32,7 +32,8 @@ local destroy = function(pos)
 	end
 end
 
-local boom = function(pos, time)
+local boom
+boom = function(pos, time)
 	minetest.after(time, function(pos)
 		if minetest.get_node(pos).name ~= "tnt:tnt_burning" then
 			return
