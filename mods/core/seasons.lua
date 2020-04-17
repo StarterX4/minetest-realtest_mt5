@@ -212,7 +212,7 @@ minetest.register_chatcommand("time", {
 
 minetest.register_chatcommand("calendar", {
 	params = "",
-	description = "get the calendar",
+	description = "Display current date and time",
 	privs = {server=true},
 	func = function(name, param)
 		minetest.chat_send_player(name, "Date: "..seasons.get_day_of_week().." "..seasons.get_day_of_month().." "..seasons.get_month().." "..seasons.get_year())
@@ -228,7 +228,7 @@ minetest.register_chatcommand("calendar", {
 
 minetest.register_chatcommand("setday", {
 	params = "<day>",
-	description = "set the day",
+	description = "Set the current day",
 	privs = {server=true},
 	func = function(name, param)
 		seasons.set_day(tonumber(param))
@@ -238,7 +238,7 @@ minetest.register_chatcommand("setday", {
 
 minetest.register_chatcommand("setyear", {
 	params = "<year>",
-	description = "set the year",
+	description = "Set the current year",
 	privs = {server=true},
 	func = function(name, param)
 		seasons.set_year(tonumber(param))
