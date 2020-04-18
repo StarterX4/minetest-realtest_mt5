@@ -162,7 +162,12 @@ minetest.register_node("tnt:tnt_burning", {
 minetest.register_node("tnt:boom", {
 	drawtype = "plantlike",
 	tiles = {"tnt_boom.png"},
+	inventory_image = "tnt_boom.png",
+	wield_image = "tnt_boom.png",
+	pointable = false,
+	buildable_to = true,
 	light_source = minetest.LIGHT_MAX,
+	paramtype = "light",
 	walkable = false,
 	drop = "",
 	groups = {dig_immediate=3},
