@@ -109,4 +109,7 @@ minetest.register_node("walking_light:light", {
 	light_source = 14,
 	pointable = false,
 	groups = {not_in_creative_inventory=1},
+	drop = "",
+	on_blast = function()
+	end,
 })
