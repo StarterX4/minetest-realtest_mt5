@@ -101,6 +101,8 @@ end)
 
 minetest.register_node("walking_light:light", {
 	drawtype = "airlike",
+	inventory_image = "walking_light_inv.png",
+	wield_image = "walking_light_inv.png",
 	paramtype = "light",
 	walkable = false,
 	is_ground_content = true,
