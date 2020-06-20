@@ -158,12 +158,9 @@ function realtest.register_tree(name, TreeDef)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		on_dig = function(pos, node, digger)
-			minetest.debug("node_dig")
-
 			local def = ItemStack({name=node.name}):get_definition()
 			-- Check if def ~= 0 because we always want to be able to remove unknown nodes
 			if #def ~= 0 and not def.diggable or (def.can_dig and not def.can_dig(pos,digger)) and digger:get_wielded_item():get_name() ~= ":" then
-				minetest.debug("not diggable")
 				minetest.log("info", digger:get_player_name() .. " tried to dig "
 					.. node.name .. " which is not diggable "
 					.. minetest.pos_to_string(pos))
