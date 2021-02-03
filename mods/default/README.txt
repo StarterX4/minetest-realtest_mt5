@@ -68,3 +68,10 @@ VanessaE's animated torches (WTFPL):
   default_torch_on_floor_animated.png
   default_torch_on_floor.png
 
+An0n3m0us (CC BY-SA 3.0):
+  heart.png -- Derived from a texture by KevDoy (CC BY-SA 3.0)
+  bubble.png -- Derived from a texture by BlockMen (CC BY-SA 3.0)
+
+Wuzzy
+  heart_gone.png -- Derived from heart.png (CC BY-SA 3.0)
+  bubble_gone.png -- Derived from bubble.png (CC BY-SA 3.0)
