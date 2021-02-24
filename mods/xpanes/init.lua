@@ -90,7 +90,15 @@ end
 
 minetest.register_node("xpanes:pane", {
 	description = "Glass Pane",
-	tiles = {"xpanes_space.png"},
+	drawtype = "nodebox",
+	tiles = {"xpanes_white.png", "xpanes_white.png", "xpanes_pane.png"},
+	node_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.06, 0.5, 0.5, 0.06},
+	},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,drop_on_dig=1},
 	use_texture_alpha = "clip",
 	inventory_image = "xpanes_pane.png",
 	wield_image = "xpanes_pane.png",
