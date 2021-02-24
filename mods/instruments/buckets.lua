@@ -112,7 +112,7 @@ function realtest.register_liquid(name, LiquidDef)
 						if pointed_thing.type ~= "node" then
 							return
 						end
-						n = minetest.get_node(pointed_thing.under)
+						local n = minetest.get_node(pointed_thing.under)
 						if minetest.registered_nodes[n.name].buildable_to then
 							minetest.add_node(pointed_thing.under, {name=LiquidDef.source})
 						else
