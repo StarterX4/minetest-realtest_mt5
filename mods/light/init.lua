@@ -2,6 +2,7 @@ minetest.register_node("light:streetlight", {
 	description = "Streetlight",
 	drawtype = "nodebox",
 	tiles = {"light_streetlight_top.png", "light_streetlight_top.png", "light_streetlight.png",},
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	sunlight_propagates = true,
 	light_source = 14,

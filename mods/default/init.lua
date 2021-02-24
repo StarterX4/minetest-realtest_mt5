@@ -3,7 +3,6 @@
 
 -- The API documentation in here was moved into doc/lua_api.txt
 
-local WATER_ALPHA = 160
 local WATER_VISC = 1
 local LAVA_VISC = 7
 
@@ -297,6 +296,7 @@ minetest.register_node("default:brick", {
 minetest.register_node("default:cactus", {
 	description = "Cactus",
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
+	use_texture_alpha = "clip",
 	groups = {snappy=2,choppy=3,flammable=2,dropping_node=1,drop_on_dig=1},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -434,6 +434,7 @@ minetest.register_node("default:glass", {
 	description = "Glass",
 	drawtype = "glasslike",
 	tiles = {"default_glass.png"},
+	use_texture_alpha = "clip",
 	particle_image = {"default_glass.png"},
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -459,7 +460,7 @@ minetest.register_node("default:water_flowing", {
 			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
 		},
 	},
-	alpha = WATER_ALPHA,
+	use_texture_alpha = "blend",
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
@@ -485,8 +486,8 @@ minetest.register_node("default:water_source", {
 		-- New-style water source material (mostly unused)
 		{name="default_water.png", backface_culling=false},
 	},
+	use_texture_alpha = "blend",
 	drop = "",
-	alpha = WATER_ALPHA,
 	paramtype = "light",
 	walkable = false,
 	pointable = false,

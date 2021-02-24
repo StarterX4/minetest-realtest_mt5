@@ -46,6 +46,7 @@ for i in ipairs(lilies_list) do
 			"flowers_waterlily"..deg2..".png",
 			"flowers_waterlily"..deg2..".png^[transformFY"
 		},
+		use_texture_alpha = "clip",
 		inventory_image = "flowers_waterlily.png",
 		wield_image  = "flowers_waterlily.png",
 		sunlight_propagates = true,
@@ -146,6 +147,7 @@ for i in ipairs(algae_list) do
 			"flowers_seaweed"..num..".png",
 			"flowers_seaweed"..num..".png^[transformFY"
 		},
+		use_texture_alpha = "clip",
 		inventory_image = "flowers_seaweed_2.png",
 		wield_image  = "flowers_seaweed_2.png",
 		sunlight_propagates = true,
@@ -238,6 +240,7 @@ minetest.register_node(":flowers:sunflower", {
 	inventory_image = "flowers_sunflower_inv.png",
 	mesh = "flowers_sunflower.obj",
 	tiles = { "flowers_sunflower.png" },
+	use_texture_alpha = "clip",
 	walkable = false,
 	buildable_to = true,
 	is_ground_content = true,

@@ -50,6 +50,7 @@ for _, mineral in ipairs(decor_minerals) do
 		collision_box = pyr_cbox,
 		paramtype = "light",
 		tiles = {"decorations_"..mineral[1]..".png"},
+		use_texture_alpha = "clip",
 		particle_image = {"minerals_"..mineral[1]..".png"},
 		groups = {cracky = 3},
 		sounds = default.node_sound_stone_defaults(),
@@ -66,6 +67,7 @@ for _, mineral in ipairs(decor_minerals) do
 				"decorations_"..mineral[1]..".png",
 				tree.textures.planks
 			},
+			use_texture_alpha = "clip",
 			groups = {cracky=3, oddly_breakable_by_hand = 2},
 			sounds = default.node_sound_stone_defaults(),
 		})
@@ -87,6 +89,7 @@ for _, mineral in ipairs(decor_minerals) do
 			"decorations_"..mineral[1]..".png",
 			"decorations_"..mineral[1].."_casket_front.png"
 		},
+		use_texture_alpha = "clip",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		selection_box = casket_cbox,
@@ -233,6 +236,7 @@ for _, mineral in ipairs(decor_minerals) do
 		mesh = "decorations_cylinder.obj",
 		paramtype = "light",
 		tiles = {"decorations_"..mineral[1]..".png"},
+		use_texture_alpha = "clip",
 		particle_image = {"minerals_"..mineral[1]..".png"},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -244,6 +248,7 @@ for _, mineral in ipairs(decor_minerals) do
 		mesh = "decorations_vase.obj",
 		paramtype = "light",
 		tiles = {"decorations_"..mineral[1]..".png"},
+		use_texture_alpha = "clip",
 		groups = {cracky=3, oddly_breakable_by_hand = 2},
 		sounds = default.node_sound_stone_defaults(),
 	})
@@ -256,6 +261,7 @@ for _, mineral in ipairs(decor_minerals) do
 		collision_box = bowl_cbox,
 		paramtype = "light",
 		tiles = {"decorations_"..mineral[1]..".png"},
+		use_texture_alpha = "clip",
 		groups = {cracky=3, oddly_breakable_by_hand = 2},
 		sounds = default.node_sound_stone_defaults(),
 	})
@@ -272,6 +278,7 @@ for _, mineral in ipairs(decor_minerals) do
 			{name="decorations_coals.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}},
 			"decorations_"..mineral[1]..".png"
 		},
+		use_texture_alpha = "clip",
 		groups = {cracky=3, oddly_breakable_by_hand = 2},
 		sounds = default.node_sound_stone_defaults(),
 	})

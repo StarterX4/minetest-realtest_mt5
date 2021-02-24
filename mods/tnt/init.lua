@@ -112,6 +112,7 @@ minetest.register_node("tnt:tnt", {
         },
     },
 	tiles = {"tnt_top.png", "tnt_bottom.png", "tnt_side.png"},
+	use_texture_alpha = "clip",
 	groups = {dig_immediate=2, mesecon=2, falling_node=1},
 	sounds = default.node_sound_wood_defaults(),
 	on_punch = function(pos, node, puncher)
@@ -147,6 +148,7 @@ minetest.register_node("tnt:tnt_burning", {
         },
     },
 	tiles = {"tnt_top_burning.png", "tnt_bottom.png", "tnt_side.png"},
+	use_texture_alpha = "clip",
 	light_source = 5,
 	drop = "",
 	groups = {falling_node=1},

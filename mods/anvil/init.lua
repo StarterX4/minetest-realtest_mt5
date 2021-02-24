@@ -209,6 +209,7 @@ for _, anvil in ipairs(anvils) do
 	minetest.register_node("anvil:anvil_"..anvil[1], {
 		description = anvil[2] .. " Anvil",
 		tiles = {"anvil_"..anvil[1].."_top.png","anvil_"..anvil[1].."_top.png","anvil_"..anvil[1].."_side.png"},
+		use_texture_alpha = "clip",
 		drawtype = "nodebox",
 		paramtype = "light",
 		paramtype2 = "facedir",

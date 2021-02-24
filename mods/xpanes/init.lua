@@ -72,6 +72,7 @@ for i = 1, 15 do
 	minetest.register_node("xpanes:pane_"..i, {
 		drawtype = "nodebox",
 		tiles = {"xpanes_white.png", "xpanes_white.png", texture},
+		use_texture_alpha = "clip",
 		paramtype = "light",
 		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,drop_on_dig=1},
 		drop = "xpanes:pane",
@@ -90,6 +91,7 @@ end
 minetest.register_node("xpanes:pane", {
 	description = "Glass Pane",
 	tiles = {"xpanes_space.png"},
+	use_texture_alpha = "clip",
 	inventory_image = "xpanes_pane.png",
 	wield_image = "xpanes_pane.png",
 	node_placement_prediction = "",

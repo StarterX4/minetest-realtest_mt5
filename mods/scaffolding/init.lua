@@ -47,6 +47,7 @@ for i, tree_name in ipairs(realtest.registered_trees_list) do
             },
         },
         tiles = {texture_top, texture_bottom, texture_side, texture_side, texture_side, texture_side},
+	use_texture_alpha = "clip",
         drop = "scaffolding:scaffolding_"..tree.name:remove_modname_prefix(),
         paramtype = "light",
         sunlight_propagates = false,
@@ -70,6 +71,7 @@ for i, tree_name in ipairs(realtest.registered_trees_list) do
 
     local scaffolding_sub = copy_table(scaffolding_top)
     scaffolding_sub.tiles = {texture_side, texture_side, texture_side, texture_side, texture_side, texture_side}
+    scaffolding_sub.use_texture_alpha = "clip"
     scaffolding_sub.sunlight_propagates = true
 
     minetest.register_node("scaffolding:scaffolding_"..tree.name:remove_modname_prefix(), scaffolding)

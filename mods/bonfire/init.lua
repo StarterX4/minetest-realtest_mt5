@@ -31,6 +31,7 @@ realtest.add_bonfire_fuel("minerals:charcoal")
 minetest.register_node("bonfire:self", {
 	description = "Bonfire",
 	tiles = {"bonfire_top.png", "bonfire_bottom.png", "bonfire_side.png"},
+	use_texture_alpha = "clip",
 	particle_image = {"bonfire_bottom.png"},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -77,6 +78,7 @@ minetest.register_node("bonfire:self_active", {
 	         {name="bonfire_flame.png",
 		     animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=1.8}},
 	},
+	use_texture_alpha = "clip",
 	particle_image = {"bonfire_bottom.png"},
 	drawtype = "nodebox",
 	paramtype = "light",
