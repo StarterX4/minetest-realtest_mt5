@@ -2,13 +2,13 @@ The RealTest Game
 (Minetest 5 Edition)
 ====================
 
-Version 1.1.5
+Version 1.2.0
 
 RealTest is an open-ended sandbox building game with a focus on realism, especially with ores. There are many different ores, and getting new tools is generally much more complex than in similar games. Eventually, you will be able to build a nice little home. There are no monsters.
 
 Read the "Getting started" section if you are new, most game mechanics are not obvious to figure out on your own.
 
-For Minetest 5.3.0 or later.
+For Minetest 5.4.0 or later.
 
 This game was originally released by sda97 in 2012 (originally for Minetest 0.4.5). In 2020, Wuzzy has picked up this game to make it compatible with Minetest 5.1.1 (or later), fixing many bugs. Apart from that, absolutely no gameplay changes have been made. This game release has been done to basically preserve a part of Minetest history.
 
