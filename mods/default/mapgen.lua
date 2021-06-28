@@ -129,6 +129,8 @@ function default.make_cactus(pos, size)
 	end
 end
 
+local water_level = tonumber(minetest.settings:get("water_level")) or 1
+
 minetest.register_on_generated(function(minp, maxp, seed)
 	if maxp.y >= 2 and minp.y <= 0 then
 		-- Generate papyrus
@@ -149,9 +151,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			for i=0,papyrus_amount do
 				local x = pr:next(x0, x1)
 				local z = pr:next(z0, z1)
-				if minetest.get_node({x=x,y=1,z=z}).name == "default:dirt_with_grass" and
-						minetest.find_node_near({x=x,y=1,z=z}, 1, "default:water_source") then
-					default.make_papyrus({x=x,y=2,z=z}, pr:next(2, 4))
+				if minetest.get_node({x=x,y=water_level,z=z}).name == "default:dirt_with_grass" and
+						minetest.find_node_near({x=x,y=water_level,z=z}, 1, "default:water_source") then
+					default.make_papyrus({x=x,y=water_level+1,z=z}, pr:next(2, 4))
 				end
 			end
 		end
