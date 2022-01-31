@@ -1,3 +1,0 @@
-trees
-default
-realtest_craftguide

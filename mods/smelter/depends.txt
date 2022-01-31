@@ -1,3 +1,0 @@
-default
-crafter
-metals

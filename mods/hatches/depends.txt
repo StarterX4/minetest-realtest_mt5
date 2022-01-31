@@ -1,4 +1,0 @@
-default
-metals
-trees
-joiner_table

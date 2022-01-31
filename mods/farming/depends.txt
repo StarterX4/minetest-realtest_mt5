@@ -1,4 +1,0 @@
-default
-trees
-plants_lib
-instruments

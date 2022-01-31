@@ -1,3 +1,0 @@
-minerals
-grounds
-default
