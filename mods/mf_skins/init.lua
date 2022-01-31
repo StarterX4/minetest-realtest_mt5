@@ -35,7 +35,7 @@ minetest.register_on_joinplayer(
 		if mf_skins_table[skin_name] == "m" then
 			skin_id = { "player_marcus.png" }
 		elseif mf_skins_table[skin_name] == "f" then
-			skin_id = { "player_felcia.png" }
+			skin_id = { "player_felicia.png" }
 		elseif mf_skins_table[skin_name] == "nyan" then
 			skin_id = { "player_nyan.png" }
 		end
