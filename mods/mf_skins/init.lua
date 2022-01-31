@@ -1,4 +1,4 @@
--- simple male/female player textures mod
+-- simple player textures mod
 -- based on player_textures by PilzAdam
 -- License:  WTFPL
 
@@ -31,22 +31,22 @@ minetest.register_on_joinplayer(
 		local pn = player:get_player_name()
 		local skin_name = "skin_"..pn
 
-		local skin_gender
+		local skin_id
 		if mf_skins_table[skin_name] == "m" then
-			skin_gender = { "player_male.png" }
+			skin_id = { "player_marcus.png" }
 		elseif mf_skins_table[skin_name] == "f" then
-			skin_gender = { "player_female.png" }
+			skin_id = { "player_felcia.png" }
 		elseif mf_skins_table[skin_name] == "nyan" then
-			skin_gender = { "player_nyan.png" }
+			skin_id = { "player_nyan.png" }
 		end
 		local init_skin = false
-		if not skin_gender then
+		if not skin_id then
 			local r = math.random(1,2)
 			if r == 1 then
-				skin_gender = { "player_male.png" }
+				skin_id = { "player_marcus.png" }
 				mf_skins_table[skin_name] = "m"
 			else
-				skin_gender = { "player_female.png" }
+				skin_id = { "player_felicia.png" }
 				mf_skins_table[skin_name] = "f"
 			end
 			minetest.log("action", "[mf_skins] Initial skin for "..pn.." set to \""..tostring(mf_skins_table[skin_name]).."\"")
@@ -57,7 +57,7 @@ minetest.register_on_joinplayer(
 		player:set_properties({
 			visual = "mesh",
 			visual_size = {x=1, y=1},
-			textures = skin_gender
+			textures = skin_id
 		})
 
 		if not init_skin then
@@ -69,48 +69,62 @@ minetest.register_on_joinplayer(
 -- commands
 
 minetest.register_chatcommand("skin", {
-	params = "<name> <gender>",
-	description = "Set a player's skin to either male (m) or female (f).",
+	params = "<player_name> [ Marcus | Felicia ]",
+	description = "Set a player's skin to either 'Marcus' or 'Felicia'.",
 	func = function(name, param)
 		-- this line borrowed from worldedit
-		local _,_, username, gender = param:find("^([^%s]+)%s+(.+)$")
-		if not username or not gender then
-			return false, "Invalid syntax."
+		local _,_, username, skinname = param:find("^([^%s]+)%s+(.+)$")
+		if not username or not skinname then
+			return false
+		end
+		skinname = string.lower(skinname)
+		if skinname == "marcus" then
+			skinname = "m"
+		elseif skinname == "felicia" then
+			skinname = "f"
 		end
 		if minetest.get_player_privs(name).basic_privs  or name==username then
 			if username and minetest.player_exists(username) then
-				if gender == "nyan" then
+				if skinname == "nyan" then
 					-- Nyan skin only for privileged players to prevent abuse
 					local privs = minetest.get_player_privs(username)
 					if not privs.server then
-						gender = nil
+						skinname = nil
 					end
 				end
-				if gender ~= "f" and gender ~= "m" and gender ~= "nyan" then
+				if skinname ~= "f" and skinname ~= "m" and skinname ~= "nyan" then
 					-- Pick random skin if invalid
 					local r = math.random(1,2)
 					if r == 1 then
-						gender = "m"
+						skinname = "m"
 					else
-						gender = "f"
+						skinname = "f"
 					end
 				end
 
-				mf_skins_table["skin_"..username] = gender
-				minetest.chat_send_player(name, "Set skin for "..username.." to \""..gender.."\".")
-				minetest.log("action", "[mf_skins] Skin for "..username.." set to \""..gender.."\".")
+				mf_skins_table["skin_"..username] = skinname
+				local skinname_out
+				if skinname == "m" then
+					skinname_out = "Marcus"
+				elseif skinname == "f" then
+					skinname_out = "Felicia"
+				elseif skinname == "nyan" then
+					skinname_out = "Nyan Cat"
+				end
+				minetest.chat_send_player(name, "Set skin for "..username.." to \""..skinname_out.."\".")
+				minetest.log("action", "[mf_skins] Skin for "..username.." set to \""..skinname_out.."\".")
 				save_skins()
-				local skin_gender = { "player_male.png" }
-				if gender == "f" then
-					skin_gender = { "player_female.png" }
-				elseif gender == "nyan" then
-					skin_gender = { "player_nyan.png" }
+				local skin_id = { "player_marcus.png" }
+				if skinname == "f" then
+					skin_id = { "player_felicia.png" }
+				elseif skinname == "nyan" then
+					skin_id = { "player_nyan.png" }
 				end
 				local player = minetest.get_player_by_name(username)
 				player:set_properties({
 					visual = "mesh",
 					visual_size = {x=1, y=1},
-					textures = skin_gender
+					textures = skin_id
 				})
 			else
 				return false, "That player does not exist."
