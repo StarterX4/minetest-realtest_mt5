@@ -56,6 +56,9 @@ Cisoun's texture pack (MIT License):
 Calinou (CC BY-SA 3.0):
   default_brick.png (modified by Wuzzy)
 
+sofar (CC0 1.0):
+  default_gravel.png -- Derived from Gambit's PixelBOX texture pack light gravel
+
 Originating from G4JC's Almost MC Texture Pack:
   default_wood.png
   default_torch.png
