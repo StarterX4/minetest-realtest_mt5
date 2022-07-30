@@ -32,9 +32,6 @@ Cisoun's WTFPL texture pack:
   default_chest_side.png
   default_chest_top.png
   default_cobble.png
-  default_dirt.png
-  default_grass.png
-  default_grass_side.png
   default_jungletree.png
   default_jungletree_top.png
   default_lava.png
@@ -78,3 +75,6 @@ An0n3m0us (CC BY-SA 3.0):
 Wuzzy
   heart_gone.png -- Derived from heart.png (CC BY-SA 3.0)
   bubble_gone.png -- Derived from bubble.png (CC BY-SA 3.0)
+  default_dirt.png -- MIT License
+  default_dirt_farm.png -- MIT License
+  default_dirt_grass.png -- MIT License
