@@ -55,5 +55,5 @@ All content, including source code, textures, models, and sounds, are 100%
 original content by the mod author (prestidigitator).
 
 Author: prestidigitator (as registered on forum.minetest.net)
-License: WTFPL (all content)
+License: MIT License (all content)
 

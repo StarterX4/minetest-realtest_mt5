@@ -4,11 +4,11 @@ by PilzAdam
 
 License of source code:
 -----------------------
-WTFPL
+MIT License
 
 License of media (textures and sounds):
 ---------------------------------------
-WTFPL
+MIT License
 
 Authors of media files:
 -----------------------

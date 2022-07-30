@@ -1,7 +1,7 @@
 -- Bushes classic mod originally by unknown
 -- now maintained by VanessaE
 --
--- License:  WTFPL
+-- License:  MIT License
 
 local S = plantslib.intllib
 

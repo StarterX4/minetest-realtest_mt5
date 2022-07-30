@@ -1,7 +1,7 @@
 --- prestibags Minetest mod
  --
  -- @author prestidigitator
- -- @copyright 2013, licensed under WTFPL
+ -- @copyright 2013, licensed under MIT License
 
 
 ---- Configuration

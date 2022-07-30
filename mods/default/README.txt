@@ -26,7 +26,7 @@ Originating from work by kddekadenz/Dogers:
   default_grass_footstep.{1,2,3}.ogg
   default_dig_crumbly.{1,2}.ogg
 
-Cisoun's WTFPL texture pack:
+Cisoun's texture pack (MIT License):
   default_chest_front.png
   default_chest_lock.png
   default_chest_side.png
@@ -62,7 +62,7 @@ Originating from G4JC's Almost MC Texture Pack:
   default_torch_on_ceiling.png
   default_torch_on_floor.png
 
-VanessaE's animated torches (WTFPL):
+VanessaE's animated torches (MIT License):
   default_torch_animated.png
   default_torch_on_ceiling_animated.png
   default_torch_on_floor_animated.png

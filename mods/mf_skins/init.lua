@@ -1,6 +1,6 @@
 -- simple player textures mod
 -- based on player_textures by PilzAdam
--- License:  WTFPL
+-- License:  MIT License
 
 local worldpath = minetest.get_worldpath()
 local textures_config = worldpath.."/player_skins_db.txt"
