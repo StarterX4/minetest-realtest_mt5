@@ -56,6 +56,9 @@ Cisoun's WTFPL texture pack:
   default_tree_top.png
   default_water.png
 
+Calinou (CC BY-SA 3.0):
+  default_brick.png (modified by Wuzzy)
+
 Originating from G4JC's Almost MC Texture Pack:
   default_wood.png
   default_torch.png
