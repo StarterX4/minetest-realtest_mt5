@@ -67,7 +67,7 @@ How to install:
 
 License:
 Source code: MIT License
-Graphics: MIT License
+Graphics: CC BY-SA 3.0 (derivate work of brick block texture by Calinou)
 
 See also:
 https://minetest.net/
