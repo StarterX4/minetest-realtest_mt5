@@ -103,6 +103,7 @@ instruments.spear.entity.on_step = function(self, dtime)
 		if node.name ~= "air" then
 			minetest.add_item(self.lastpos, "instruments:spear_"..self.object:get_luaentity().material)
 			self.object:remove()
+			return
 		end
 	end
 	self.lastpos={x=pos.x, y=pos.y, z=pos.z}
