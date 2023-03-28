@@ -2,6 +2,37 @@ The RealTest Game
 (Minetest 5 Edition)
 ====================
 
+---
+
+WARNING: This game is currently MISSING a number of important tree, leaves and wood textures. The following textures are missing. Help is greatly appreciated!
+
+* `trees_ash_leaves.png`
+* `trees_ash_planks.png`
+* `trees_ash_trunk_top.png`
+* `trees_ash_trunk.png`
+* `trees_aspen_leaves.png`
+* `trees_aspen_planks.png`
+* `trees_birch_leaves.png`
+* `trees_birch_planks.png`
+* `trees_chestnut_leaves.png`
+* `trees_chestnut_planks.png`
+* `trees_chestnut_trunk_top.png`
+* `trees_chestnut_trunk.png`
+* `trees_maple_leaves.png`
+* `trees_maple_planks.png`
+* `trees_maple_trunk_top.png`
+* `trees_maple_trunk.png`
+* `trees_pine_leaves.png`
+* `trees_pine_planks.png`
+* `trees_pine_trunk_top.png`
+* `trees_pine_trunk.png`
+* `trees_sequoia_leaves.png`
+* `trees_sequoia_planks.png`
+* `trees_spruce_leaves.png`
+* `trees_spruce_planks.png`
+
+---
+
 Version 1.2.2
 
 RealTest is an open-ended sandbox building game with a focus on realism, especially with ores. There are many different ores, and getting new tools is generally much more complex than in similar games. Eventually, you will be able to build a nice little home. There are no monsters.
